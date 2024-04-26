@@ -1,0 +1,41 @@
+.box {
+    width: 18%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    background-color: white;
+}
+
+.box img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+
+
+
+.box:hover {
+    box-shadow: 2px 1px 10px 2px;
+}
+
+.box button {
+    margin-left: 33%; 
+}
+
+#categoryList li.active {
+    background-color: blue;
+    color: white;
+}
+
+.img-fluid-modal {
+    max-width: 100%; 
+    height: auto;
+}
+#fixed-elements{
+    position: fixed;
+    right: 10px;
+    bottom: 70px;
+    width: 150px;
+}
+

@@ -1,0 +1,24 @@
+.carousel-control-next{
+    background-color: blue;
+    width: 50px;
+}
+.carousel-control-prev{
+    background-color: blue;
+    width: 50px;
+}
+
+.carousel-caption{
+    bottom: 1.85rem !important;
+}
+
+.carousel-indicators {
+    bottom:25px !important;
+}
+
+.navbar-nav > li {
+    margin-right: 10px !important;
+}
+
+.navbar-nav > li:last-child {
+    margin-right: 0 !important;
+}

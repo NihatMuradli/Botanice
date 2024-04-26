@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komputerlerim</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .computer-image-show {
+      height: 100px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/my-computers.js"></script>
+</head>
+
+<body>
+  <div class="p-3">
+    <a class="btn btn-warning" href="/templates/index.html">Əsas Səhifə</a>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addComputerModal">
+      Yeni komputer
+    </button>
+    <div class="modal fade" id="addComputerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form id="addComputerForm" class="was-validated">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="confirmOrderModalLabel">New Computer</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="computerCategory" class="form-label">Kateqoriya:</label>
+                    <select id="computerCategory" class="form-select form-control" aria-label="Default select example"
+                      required>
+                      <option value="Asus" selected>Asus</option>
+                      <option value="Acer">Acer</option>
+                      <option value="Dell">Dell</option>
+                      <option value="HP">Hp</option>
+                      <option value="Lenovo">Lenovo</option>
+                      <option value="LG">LG</option>
+                      <option value="Casper">Casper</option>
+                      <option value="Fujitsu">Fujitsu</option>
+                      <option value="Nexus">Nexus</option>
+                      <option value="Samsung">Samsung</option>
+                      <option value="Toshiba">Toshiba</option>
+                      <option value="Sony">Sony</option>
+                    </select>
+                    <div class="valid-feedback">Valid input!</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="computerModel" class="form-label">Model:</label>
+                    <input type="text" class="form-control" id="computerModel" name="computerModel" required
+                      minlength="2" maxlength="30">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty. Min 2 Max 30 characters</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="computerPrice" class="form-label">Price:</label>
+                    <input type="number" class="form-control" id="computerPrice" max="999999" required
+                      name="computerPrice">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="computerDescription" class="form-label">Description:</label>
+                    <input type="text" class="form-control" id="computerDescription" maxlength="300" required
+                      name="computerDescription">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty. Min 2 Max 300 characters</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="computerIsNew" class="form-label">Yenidir:</label>
+                    <select id="computerIsNew" class="form-select form-control" aria-label="Default select example"
+                      required>
+                      <option value="true" selected>Beli</option>
+                      <option value="false">Xeyr</option>
+                    </select>
+                    <div class="valid-feedback">Valid input!</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="computerImage">Sekil:</label>
+                    <input type="text" name="computerImage" class="form-control" id="computerImage"
+                      oninput="displayImage()" required>
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <!-- Computer Image -->
+                  <div>
+                    <img id="newComputerImage" src="" alt="Bu linkde sekil yoxdur" style="display: none;"
+                      class="computer-image-show">
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="computerRam" class="form-label">RAM (GB):</label>
+                    <input type="number" class="form-control" id="computerRam" required name="computerRam">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="computerCpu" class="form-label">CPU Name:</label>
+                    <input type="text" class="form-control" id="computerCpu" maxlength="300" required
+                      name="computerCpu">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="computerRom" class="form-label">ROM (GB):</label>
+                    <input type="number" class="form-control" id="computerRom" required name="computerRom">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="computerRomType" class="form-label">Daimi Yaddas Tipi:</label>
+                    <select id="computerRomType" class="form-select form-control" aria-label="Default select example"
+                      required>
+                      <option value="SSD" selected>SSD</option>
+                      <option value="HDD">HDD</option>
+                    </select>
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="computerOs" class="form-label">Operating System:</label>
+                    <input type="text" class="form-control" id="computerOs" maxlength="30" required name="computerOs">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="computerGpu" class="form-label">Video Kart:</label>
+                    <input type="text" class="form-control" id="computerGpu" required name="computerGpu">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success ">Yadda saxla</button>
+              <button id="resetNewComputerInputs" type="button" class="btn btn-primary">Məlumatları sıfırla</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editComputerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form id="editComputerForm" class="was-validated">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5">Edit Computer</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="editcomputerCategory" class="form-label">Kateqoriya:</label>
+                    <select id="editcomputerCategory" class="form-select form-control"
+                      aria-label="Default select example" required>
+                      <option value="Asus" selected>Asus</option>
+                      <option value="Acer">Acer</option>
+                      <option value="Dell">Dell</option>
+                      <option value="HP">Hp</option>
+                      <option value="Lenovo">Lenovo</option>
+                      <option value="LG">LG</option>
+                      <option value="Casper">Casper</option>
+                      <option value="Fujitsu">Fujitsu</option>
+                      <option value="Nexus">Nexus</option>
+                      <option value="Samsung">Samsung</option>
+                      <option value="Toshiba">Toshiba</option>
+                      <option value="Sony">Sony</option>
+                    </select>
+                    <div class="valid-feedback">Valid input!</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="editcomputerModel" class="form-label">Model:</label>
+                    <input type="text" class="form-control" id="editcomputerModel" name="editcomputerModel" required
+                      minlength="2" maxlength="30">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty. Min 2 Max 30 characters</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="editcomputerPrice" class="form-label">Price:</label>
+                    <input type="number" class="form-control" id="editcomputerPrice" required name="editcomputerPrice">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="editcomputerDescription" class="form-label">Description:</label>
+                    <input type="text" class="form-control" id="editcomputerDescription" maxlength="300" required
+                      name="editcomputerDescription">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty. Min 2 Max 300 characters</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editcomputerIsNew" class="form-label">Yenidir:</label>
+                    <select id="editcomputerIsNew" class="form-select form-control" aria-label="Default select example"
+                      required>
+                      <option value="true" selected>Beli</option>
+                      <option value="false">Xeyr</option>
+                    </select>
+                    <div class="valid-feedback">Valid input!</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editcomputerImage">Sekil:</label>
+                    <input oninput="displayEditImage()" type="text" name="editcomputerImage" class="form-control"
+                      id="editcomputerImage" required>
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div>
+                    <img src="" alt="Bu linkde sekil yoxdur" style="display: none;" id="editComputerImage"
+                      class="computer-image-show">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="editcomputerRam" class="form-label">RAM (GB):</label>
+                    <input type="number" class="form-control" id="editcomputerRam" required name="editcomputerRam">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editcomputerCpu" class="form-label">CPU Name:</label>
+                    <input type="text" class="form-control" id="editcomputerCpu" maxlength="300" required
+                      name="editcomputerCpu">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editcomputerRom" class="form-label">ROM (GB):</label>
+                    <input type="number" class="form-control" id="editcomputerRom" required name="editcomputerRom">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editcomputerRomType" class="form-label">Daimi Yaddas Tipi:</label>
+                    <select id="editcomputerRomType" class="form-select form-control"
+                      aria-label="Default select example" required>
+                      <option value="SSD" selected>SSD</option>
+                      <option value="HDD">HDD</option>
+                    </select>
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editcomputerOs" class="form-label">Operating System:</label>
+                    <input type="text" class="form-control" id="editcomputerOs" maxlength="30" required
+                      name="editcomputerOs">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editcomputerGpu" class="form-label">Video Kart:</label>
+                    <input type="text" class="form-control" id="editcomputerGpu" required name="editcomputerGpu">
+                    <div class="valid-feedback">Valid input!</div>
+                    <div class="invalid-feedback">Don't leave empty.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success ">Edit</button>
+              <button id="resetEditComputerInputs" type="button" class="btn btn-primary">Məlumatları sıfırla</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Photo modal -->
+    <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="photoModalLabel">Photo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img  height="300px" id="img" src="" alt="Sekil tapilmadi">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <input id="search" type="search" class="ms-auto" placeholder="Search">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">Model</th>
+          <th scope="col">Şəkil</th>
+          <th scope="col">Qiymet</th>
+          <th scope="col">Sil</th>
+          <th scope="col">Redakte</th>
+        </tr>
+      </thead>
+      <tbody class="tbody" id="table-body">
+
+      </tbody>
+
+    </table>
+    <script>
+      function displayImage() {
+        const computerImageInput = document.getElementById('computerImage');
+        const newComputerImage = document.getElementById('newComputerImage');
+
+        // Get the value from the input
+        const imageUrl = computerImageInput.value;
+
+        // Display or hide the image based on whether the input is empty or not
+        if (imageUrl.trim() !== '') {
+          newComputerImage.src = imageUrl;
+          newComputerImage.style.display = 'block';
+        } else {
+          newComputerImage.style.display = 'none';
+        }
+      }
+      function displayEditImage() {
+        const editComputerImageInput = document.getElementById('editcomputerImage');
+        const editComputerImage = document.getElementById('editComputerImage');
+
+        // Get the value from the input
+        const imageUrl = editComputerImageInput.value;
+
+        // Display or hide the image based on whether the input is empty or not
+        if (imageUrl.trim() !== '') {
+          editComputerImage.src = imageUrl;
+          editComputerImage.style.display = 'block';
+        } else {
+          editComputerImage.style.display = 'none';
+        }
+      }
+      function openPhotoModal(imagePath) {
+        const photoModal = new bootstrap.Modal(document.getElementById('photoModal'), {
+          keyboard: false
+        });
+
+        const modalImage = document.getElementById('img');
+        modalImage.src = imagePath;
+
+        photoModal.show();
+      }
+    </script>
+  </div>
+</body>
+
+</html>
