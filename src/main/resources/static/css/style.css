@@ -1,12 +1,12 @@
-:root{
-    --dark-green-:#457744;
+:root {
+    --dark-green-: #457744;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family:"Ubuntu",sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
     background-position: center;
 }
 
-.alert{
+.alert {
     position: absolute;
     top: -10%;
     width: 500px;
@@ -37,44 +37,48 @@ body {
     transition: all .8s;
 }
 
-.alert.error{
+.alert.error {
     animation-name: error;
     animation-delay: .5s;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
 }
 
-@keyframes error{
-    0%{
+@keyframes error {
+    0% {
         transform: translateX(0px);
     }
-    25%{
+
+    25% {
         transform: translateX(50px);
     }
-    50%{
+
+    50% {
         transform: translateX(-50px);
     }
-    75%{
+
+    75% {
         transform: translateX(50px);
     }
-    100%{
+
+    100% {
         transform: translateX(0px);
     }
 }
 
-.alert.active{
+.alert.active {
     top: 10px;
     transform: scale(1);
 }
 
-.alert .alert-text{
+.alert .alert-text {
     font-size: 1.3em;
     color: var(--dark-green-);
     font-weight: 700;
     margin: auto 20px;
 }
 
-.alert .delete-btn{
+.alert .delete-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,23 +89,23 @@ body {
     border: none;
     background: transparent;
     color: var(--dark-green-);
-    transition: color,border,background .6s;
+    transition: color, border, background .6s;
 }
 
-.alert .delete-btn:hover{
+.alert .delete-btn:hover {
     color: white;
     background: var(--dark-green-);
     border-left: 3px solid #fff;
 }
 
-.delete-btn:active{
+.delete-btn:active {
     font-size: 2.8em;
 }
 
-.wrapper{
+.wrapper {
     position: relative;
     width: 800px;
-    height: 600px;
+    height: auto;
     background: transparent;
     border: 3px solid #fff;
     border-radius: 20px;
@@ -114,15 +118,15 @@ body {
     overflow: hidden;
 }
 
-#SignupLink, b{
+#SignupLink, b {
     color: var(--dark-green-);
 }
 
-a{
-  text-decoration: none;
+a {
+    text-decoration: none;
 }
 
-.login-box{
+.login-box {
     width: 50%;
     height: 100%;
     padding: 40px;
@@ -131,15 +135,15 @@ a{
     justify-content: center;
 }
 
-.login-box .title{
+.login-box .title {
     font-size: 3.4rem;
     color: var(--dark-green-);
     text-align: center;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 15px;
 }
 
-.input-box{
+.input-box {
     position: relative;
     width: 100%;
     height: 50px;
@@ -147,7 +151,7 @@ a{
     margin: 30px 0;
 }
 
-.input-box label{
+.input-box label {
     position: absolute;
     top: 50%;
     left: 8px;
@@ -160,11 +164,11 @@ a{
 }
 
 .input-box input:focus~label,
-.input-box input:valid~label{
+.input-box input:valid~label {
     top: -3px;
 }
 
-.input-box input{
+.input-box input {
     width: 100%;
     height: 100%;
     background: none;
@@ -177,7 +181,7 @@ a{
     padding-right: 50px;
 }
 
-.input-box .icon{
+.input-box .icon {
     position: absolute;
     right: 10px;
     top: 8px;
@@ -185,17 +189,17 @@ a{
     color: var(--dark-green-);
 }
 
-.remember{
+.remember {
     font-size: 1.1em;
     margin: -15px 0 5px 5px;
     color: var(--dark-green-);
 }
 
-.remember label input{
+.remember label input {
     accent-color: var(--dark-green-);
 }
 
-.btn{
+.btn {
     width: 100%;
     height: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -209,18 +213,39 @@ a{
     transition: all .4s;
 }
 
-.btn:hover{
+.btn:hover {
     color: #fff;
     background: var(--dark-green-);
-    transform: translate(-3px,-4px);
+    transform: translate(-3px, -4px);
 }
 
-.btn:active{
-    transform: translate(3px,4px);
+.btn:active {
+    transform: translate(3px, 4px);
 }
 
-.logo{
+.logo {
     width: 400px;
     height: 100%;
     object-fit: scale-down;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        height: auto;
+        width: 90%;
+        margin: auto;
+    }
+
+    .login-box, .logo {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logo img {
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+    }
 }
