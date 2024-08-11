@@ -15,7 +15,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     min-width: 100vw;
-    background: url(/static/images/loginbg.jpg);
+    background: url(../../images/loginbg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -118,7 +118,8 @@ body {
     overflow: hidden;
 }
 
-#SignupLink, b {
+#signupLink, b {
+    margin-top: 10px;
     color: var(--dark-green-);
 }
 
@@ -227,6 +228,7 @@ a {
     width: 400px;
     height: 100%;
     object-fit: scale-down;
+    user-select: none;
 }
 
 @media screen and (max-width: 768px) {
