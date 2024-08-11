@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/static/js/login.js"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../static/images/icon.png">
+    <script src="https://kit.fontawesome.com/cfe474865a.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <title>BOTANIC-E Login</title>
 </head>
-
 <body>
-    <div class="container">
-        <div class="row justify-content-center mt-3">
-            <div class="col-4">
-                <a href="/templates/index.html" class="btn btn-warning">Əsas səhifə</a>
-                <h2>Hesaba daxil olmaq</h2>
-                <div id="successAlert" class="alert alert-success d-none" role="alert">
-                    Hesaba daxil olundu.
-                </div>
-                <div id="dangerAlert" class="alert alert-danger d-none " role="alert">
-                    İstifadəçi adı və ya parol səhvdir.
-                </div>
-                <form action="#" id="log-in" class="was-validated">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">İstifadəçi adı:</label>
-                        <input type="text" class="form-control" name="username" id="username" required>
-                        <div class="invalid-feedback">
-                            İstifadəçi adı boş ola bilməz.
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Şifrə:</label>
-                        <input type="password" class="form-control" name="password" id="password" required>
-                        <div class="invalid-feedback">
-                            Şifrə boş ola bilməz.
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="submit" class="btn btn-success" value="Hesaba daxil ol">
-                    </div>
-                </form>
-                <span>Hesabın yoxdur?</span> <a href="signup.html" class="btn btn-primary">Hesab yarat</a>
-            </div>
-        </div>
-    </div>
-</body>
 
+<div class="alert">
+    <div class="alert-text">Password or Username is false.</div>
+    <button class="delete-btn"> <i class="fa-solid fa-x"> </i></button>
+</div>
+
+<div class="wrapper">
+    <div class="login-box">
+        <h1 class="title">Log In</h1>
+        <form id="form" method="post">
+            <div class="input-box">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <input id="username" name="username" type="text" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                <input id="password" name="password" type="password" required>
+                <label for="password">Password</label>
+            </div>
+            <div class="remember">
+                <label>
+                    <input name="remembering" type="checkbox">
+                    Remember me
+                </label>
+            </div>
+            <input value="Log in" class="btn" name="submit" type="submit">
+            <p id="SignupLink">Don't have an account? <a href="signup.html"><b>Sign Up!</b></a></p>
+        </form>
+    </div>
+    <div class="logo">
+        <img src="../static/images/Botanic-e.png" alt="logo" class="logo">
+    </div>
+</div>
+
+</body>
 </html>
