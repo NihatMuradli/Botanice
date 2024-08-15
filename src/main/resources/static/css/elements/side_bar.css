@@ -18,7 +18,7 @@
     top: 100px;
     left: -550px;
     position: fixed;
-    width: 25%;
+    width: 20%;
     max-width: 500px;
     min-width: 250px;
     height: 80%;
@@ -149,4 +149,22 @@
 .page-link:nth-child(5):hover ~ .side-animation{
     top: 224px;
     height: 46px;
+}
+
+@media screen and (max-width: 576px) {
+    .side-bar{
+        width: 100% !important;
+        max-width: none;
+        height: 100%;
+        top: 0;
+        border-radius: 0;
+    }
+
+    .side-bar.active{
+        left: 0;
+    }
+
+    .side-bar .side-btn{
+        left: 0;
+    }
 }
