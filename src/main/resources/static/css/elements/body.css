@@ -1,6 +1,18 @@
+@font-face{
+    font-family: "Integral";
+    src:url(../../fonts/Integral/Fontspring-DEMO-integralcf-bold.otf);
+}
+
+@font-face {
+    font-family:"Gunship";
+    src: url("../../fonts/Gunship/gunshipbold.ttf");
+}
+
 :root {
     --dark-green-: #457744;
+    --dark-green-faded:#457744b4 ;
     --white: #ffffff;
+    --white-faded: #ffffff86;
 }
 
 * {
@@ -22,10 +34,12 @@ body {
 .wrap{
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     height: 100vh;
     width: 100%;
     max-width: 1500px !important;
     background-color: transparent;
 }
+

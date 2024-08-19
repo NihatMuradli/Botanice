@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/home/main.css">
+    <link rel="stylesheet" href="../static/css/pages/home.css">
+    <link rel="stylesheet" href="../static/css/elements/side_bar.css">
     <link rel="stylesheet" href="../static/css/elements/body.css">
     <link rel="stylesheet" href="../static/css/elements/header.css">
     <link rel="icon" type="image/x-icon" href="../static/images/botanic-e-icon-green.png">
     <script src="https://kit.fontawesome.com/cfe474865a.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-09b459cf485d4b1f3304947240314c05.css?vsn=d">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css">
+    <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-light.css">
     <title>Botanic-e</title>
 </head>
 <body>
@@ -40,12 +48,35 @@
             </ul>
         </header>
 
-        <article class="main">
-            
+        <section class="side-bar">
+            <div class="side-logo-container">
+                <a href="index.html">
+                    <img src="../static/images/botanic-e-white-slogan-hd.png" alt="logo" class="side-logo">
+                </a>
+                <button class="side-btn"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+            <ul class="page-links">
+                <li class="page-link"><i class="fa-regular fa-house"></i><a href="">Home</a></li>
+                <li class="page-link"><i class="fa-regular fa-flower-tulip"></i><a href="">Flowers</a></li>
+                <li class="page-link"><i class="fa-regular fa-robot"></i><a href="">Robots</a></li>
+                <li class="page-link"><i class="fa-regular fa-leaf"></i><a href="">Risky Flowers</a></li>
+                <li class="page-link"><i class="fa-regular fa-cart-shopping"></i><a href="">Market Place</a></li>
+                <li class="side-animation"></li>
+            </ul>
+        </section>
+
+        <article class="container">
+            <img class="welcome-img" src=".././static/images/background-photo.jpg" alt="">
+            <aside class="welcome">
+                <p class="title">Botanic-e</p>
+                <p class="suptitle">Flowing in Flowers</p>
+                <button class="welcome-btn">Get Start</button>
+            </aside>
         </article>
 
     </main>
 
+    <script src="../static/js/side_bar.js"></script>
     <script src="../static/js/header.js"></script>
 </body>
 </html>
