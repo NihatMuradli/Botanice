@@ -1,0 +1,10 @@
+body{
+    background: url(../../images/background-photo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: border-box;
+    background-attachment: fixed;
+    background-origin: border-box;
+    width: 100vw;
+    height: 100vh;
+}
