@@ -13,19 +13,54 @@ document.addEventListener('DOMContentLoaded', function () {
             const isUsernameAvailable = await checkUsernameAvailability(username);
 
             if (!isUsernameAvailable) {
-                alert("in use");
+                const alertBox = document.querySelector('#alertBox')
+                const alertText = document.querySelector('#alertText')
+                alertText.innerHTML = "Username is already taken";
+                alertBox.classList.add('active');
+                const alert = document.querySelector(".alert"),
+                    deleteBtn = document.querySelector(".delete-btn");
+                let classList;
+
+                deleteBtn.addEventListener("click", () => {
+                    classList = alert.classList.toString();
+                    if (classList.indexOf("active") >= -1) alert.classList.remove("active");
+                });
             }
 
             const userAccount = { username, email, password, confirmPassword };
 
             const createdAccount = await registerUserAccount(userAccount);
 
-            alert("success")
-            location.replace("login.html");
+            const alertBox = document.querySelector('#alertBox')
+                const alertText = document.querySelector('#alertText')
+                alertText.innerHTML = "Singed Up Successfully";
+                alertBox.classList.add('active');
+                const alert = document.querySelector(".alert"),
+                    deleteBtn = document.querySelector(".delete-btn");
+                let classList;
+
+                deleteBtn.addEventListener("click", () => {
+                    classList = alert.classList.toString();
+                    if (classList.indexOf("active") >= -1) alert.classList.remove("active");
+                });
+                setTimeout(() => {
+                    location.replace("login.html");
+                }, 1500);
             console.log('Created Shop Account:', createdAccount);
         } catch (error) {
             console.error('Error during sign up:', error);
-            alert('Error during sign up. Please try again.');
+            const alertBox = document.querySelector('#alertBox')
+            const alertText = document.querySelector('#alertText')
+            alertText.innerHTML = "Username is already taken";
+            alertBox.classList.add('active');
+            const alert = document.querySelector(".alert"),
+                deleteBtn = document.querySelector(".delete-btn");
+            let classList;
+
+            deleteBtn.addEventListener("click", () => {
+                classList = alert.classList.toString();
+                if (classList.indexOf("active") >= -1) alert.classList.remove("active");
+            });
         }
     });
 
