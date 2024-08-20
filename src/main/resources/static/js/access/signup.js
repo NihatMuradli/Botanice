@@ -13,40 +13,60 @@ document.addEventListener('DOMContentLoaded', function () {
             const isUsernameAvailable = await checkUsernameAvailability(username);
 
             if (!isUsernameAvailable) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Username",
-                    text: "Username is already in use",
-                    timer: 1200
-                }).then(() => {
-                    location.reload();
+                const alertBox = document.querySelector('#alertBox')
+                const alertText = document.querySelector('#alertText')
+                alertText.innerHTML = "Username is already taken";
+                alertBox.classList.add('active');
+                const alert = document.querySelector(".alert"),
+                    deleteBtn = document.querySelector(".delete-btn");
+                let classList;
+
+                deleteBtn.addEventListener("click", () => {
+                    classList = alert.classList.toString();
+                    if (classList.indexOf("active") >= -1) alert.classList.remove("active");
                 });
-                return;
             }
 
-            const shopId = await createShop(name, phone);
-            const shopAccount = { username, password, shop: { id: shopId } };
+            const userAccount = { username, email, password, confirmPassword };
 
-            const createdAccount = await registerShopAccount(shopAccount);
+            const createdAccount = await registerUserAccount(userAccount);
 
-            Swal.fire({
-                icon: "success",
-                title: "Account",
-                text: "Accouns registered successfully. You can log in.",
-                timer: 1500
-            }).then(() => {
-                location.replace("login.html");
-            });
+            const alertBox = document.querySelector('#alertBox')
+                const alertText = document.querySelector('#alertText')
+                alertText.innerHTML = "Singed Up Successfully";
+                alertBox.classList.add('active');
+                const alert = document.querySelector(".alert"),
+                    deleteBtn = document.querySelector(".delete-btn");
+                let classList;
+
+                deleteBtn.addEventListener("click", () => {
+                    classList = alert.classList.toString();
+                    if (classList.indexOf("active") >= -1) alert.classList.remove("active");
+                });
+                setTimeout(() => {
+                    location.replace("login.html");
+                }, 1500);
             console.log('Created Shop Account:', createdAccount);
         } catch (error) {
             console.error('Error during sign up:', error);
-            alert('Error during sign up. Please try again.');
+            const alertBox = document.querySelector('#alertBox')
+            const alertText = document.querySelector('#alertText')
+            alertText.innerHTML = "Username is already taken";
+            alertBox.classList.add('active');
+            const alert = document.querySelector(".alert"),
+                deleteBtn = document.querySelector(".delete-btn");
+            let classList;
+
+            deleteBtn.addEventListener("click", () => {
+                classList = alert.classList.toString();
+                if (classList.indexOf("active") >= -1) alert.classList.remove("active");
+            });
         }
     });
 
     async function checkUsernameAvailability(username) {
         try {
-            const response = await fetch(`http://localhost:5000/api/shop/accounts/checkUsername/${username}`);
+            const response = await fetch(`http://localhost:5000/api/users/checkUsername/${username}`);
             const data = await response.json();
             return data;
         } catch (error) {
@@ -55,23 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    async function createUser(name, phone) {
-        try {
-            const response = await fetch('http://localhost:5000/api/shops/addShop', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, phoneNumber: phone }),
-            });
-
-            const data = await response.json();
-            return data.id;
-        } catch (error) {
-            console.error('Error creating shop:', error);
-            throw error;
-        }
-    }
 
     async function registerUserAccount(userAccount) {
         try {
