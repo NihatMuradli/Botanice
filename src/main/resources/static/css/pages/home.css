@@ -38,7 +38,7 @@ body{
 
 .welcome-text{
     position: absolute;
-    top: 200px;
+    top: 300px;
     left: calc(40% - 20px);
     width:max-content;
     text-align: left;
@@ -48,57 +48,68 @@ body{
 }
 
 .title{
-    font-family: "Gunship";
-    font-size: 168px;
+    position: relative;
+    z-index: 0;
+    font-family: "Gunship Bold Italic";
+    font-size: 158px;
+    line-height: calc(158px * 1.2);
     color: var(--dark-green-);
     text-align: center;
     pointer-events: none;
-    user-select: none;
+    /* user-select: none; */
 }
 
 .stroke-text-svg{
     position: absolute;
     width: 2000px !important;
-    z-index: 3;
+    z-index: 4;
     top: 0;
     left: 0;
     pointer-events: none;
-    user-select: none;
+    /* user-select: none; */
 }
 
 .title-stroke {
-    font-family: "Gunship", sans-serif;
+    font-family: "Gunship Bold Italic", sans-serif;
     pointer-events: none;
     width: 1000px;
-    font-size: 168px;
-    user-select: none;
+    font-size: 158px;
+    line-height: calc(158px * 1.2);
 }
 
 .suptitle{
-    font-size: 88px;
-    color: var(--white);
+    font-size: 76px;
+    color: var(--dark-green-);
     text-align: center;
+    font-family: "Ubuntu",sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    margin-top: -20px;
     margin-bottom: 20px;
+    line-height: calc(50px * 1.5);
     position: relative;
     z-index: 4;
+    letter-spacing: -1px;
     text-shadow: 
-    2px 2px 10px var(--dark-green-),
-    -2px 2px 10px var(--dark-green-),
-    2px -2px 10px var(--dark-green-),
-    -2px -2px 10px var(--dark-green-);
+    2px 2px  var(--white-faded),
+    -2px 2px  var(--white-faded),
+    2px -2px  var(--white-faded),
+    -2px -2px  var(--white-faded);
 }
 
 .welcome-btn{
     background-color: transparent;
     border: 4px solid var(--dark-green-);
     color: var(--dark-green-);
+    text-decoration: none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 600;
     padding: 10px 25px;
     border-radius: 19px;
     cursor: pointer;
     backdrop-filter: blur(15px);
+    margin-top: 60px;
     transition: all 0.4s ease;
 }
 
@@ -111,6 +122,7 @@ body{
 .hello-card{
     position: absolute;
     top: 450px;
+    display: block;
 }
 
 .blur-effect {
@@ -132,6 +144,7 @@ body{
 }
 
 .hello-img{
+    width: max-content;
     position: absolute;
     z-index: 3;
 }
@@ -143,5 +156,243 @@ body{
     
     .title-stroke {
         font-size: 144px;
+    }
+}
+
+@media screen and (max-width: 1680px) {
+    .title{
+        font-size: 144px;
+        line-height: calc(144px * 1.2);
+    }  
+    .title-stroke {
+        font-size: 144px;
+        line-height: calc(144px * 1.2);
+    }
+    .hello-img{
+        width: 1000px;
+        top: 60px;
+    }
+    .welcome-text{
+        top: 270px;
+    }
+    .welcome-btn{
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .title{
+        font-size: calc(144px * 0.8);
+        line-height: calc(144px * 0.8 * 1.2);
+    }
+    
+    .title-stroke {
+        font-size: calc(144px * 0.8);
+        line-height: calc(144px * 0.8 * 1.2);
+    }
+    .suptitle{
+        font-size: calc(76px * 0.7);
+    }
+    .welcome-btn{
+        font-size: calc(40px * 0.7);
+        margin-top: 30px;
+    }
+    .hello-card{
+        top: 350px;
+    }
+    .hello-img{
+        width: 900px;
+        top: 20px;
+    }
+    .welcome-text{
+        top: 230px;
+    }
+    .blur-effect {
+        transform: scale(6);
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .title{
+        font-size: calc(144px * 0.6);
+        line-height: calc(144px * 0.6 * 1.2);
+    }
+    
+    .title-stroke {
+        font-size: calc(144px * 0.6);
+        line-height: calc(144px * 0.6 * 1.2);
+    }
+
+    .suptitle{
+        font-size: calc(76px * 0.5);
+    }
+
+    .welcome-btn{
+        font-size: calc(40px * 0.5);
+        margin-top: 20px;
+    }
+
+    .hello-card{
+        top: 260px;
+    }
+
+    .hello-img{
+        width: 700px;
+        top: 50px;
+    }
+
+    .welcome-text{
+        top: 210px;
+    }
+
+    .blur-effect {
+        transform: scale(5);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .title{
+        font-size: calc(144px * 0.5);
+        line-height: calc(144px * 0.5 * 1.2);
+    }
+    
+    .title-stroke {
+        font-size: calc(144px * 0.5);
+        line-height: calc(144px * 0.5 * 1.2);
+    }
+
+    .suptitle{
+        font-size: calc(76px * 0.4);
+        margin-bottom: 0;
+    }
+
+    .welcome-btn{
+        font-size: calc(40px * 0.4);;
+        border: 2px solid var(--dark-green-);
+        padding: 5px 12px;
+        border-radius: 10px;
+        backdrop-filter: blur(8px);
+        margin-top: 12px;
+    }
+
+    .welcome-btn:hover{
+        border: 2px solid var(--white);
+    }
+
+    .hello-card{
+        top: 160px;
+    }
+
+    .hello-img{
+        width: 500px;
+        top: 50px;
+    }
+
+    .welcome-text{
+        top: 160px;
+    }
+
+    .blur-effect {
+        transform: scale(3.6);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title{
+        font-size: calc(144px * 0.4);
+        line-height: calc(144px * 0.4 * 1.2);
+    }
+    
+    .title-stroke {
+        font-size: calc(144px * 0.4);
+        line-height: calc(144px * 0.4 * 1.2);
+    }
+
+    .suptitle{
+        font-size: calc(76px * 0.3);
+        margin-bottom: 0;
+        margin-top: -30px;
+        text-shadow: 
+        2px 2px 5px var(--white-faded),
+        -2px 2px 5px  var(--white-faded),
+        2px -2px 5px  var(--white-faded),
+        -2px -2px 5px  var(--white-faded);
+    }
+
+    .welcome-btn{
+        font-size: calc(40px * 0.3);;
+        border: 2px solid var(--dark-green-);
+        padding: 5px 15px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        margin-top: 10px;
+    }
+
+    .welcome-btn:hover{
+        border: 2px solid var(--white);
+    }
+
+    .hello-card{
+        top: 120px;
+    }
+
+    .hello-img{
+        width: 400px;
+        top: 55px;
+    }
+
+    .welcome-text{
+        top: 140px;
+    }
+
+    .blur-effect {
+        transform: scale(3);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .title{
+        font-size: calc(144px * 0.4);
+        line-height: calc(144px * 0.4 * 1.2);
+    }
+    
+    .title-stroke {
+        font-size: calc(144px * 0.4);
+        line-height: calc(144px * 0.4 * 1.2);
+    }
+
+    .suptitle{
+        font-size: calc(76px * 0.3);
+        margin-bottom: 0;
+        margin-top: -30px;
+    }
+
+    .welcome-btn{
+        font-size: calc(40px * 0.3);;
+        border: 2px solid var(--dark-green-);
+        padding: 5px 15px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        margin-top: 10px;
+    }
+
+    .welcome-btn:hover{
+        border: 2px solid var(--white);
+    }
+
+    .hello-card{
+        display: none;
+    }
+
+    .hello-img{
+        display: none;
+    }
+
+    .welcome-text{
+        top: 140px;
+    }
+
+    .blur-effect {
+        display: none;
     }
 }
