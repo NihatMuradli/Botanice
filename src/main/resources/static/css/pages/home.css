@@ -44,3 +44,32 @@ body{
     text-align: center;
     margin-bottom: 20px;
 }
+
+.welcome{
+    position: absolute;
+}
+
+.hello-card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.blur-effect {
+    position: absolute;
+    width: 200px;
+    height:200px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    mask: url(#blobMask);
+}
+
+.stroke-svg{
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height:200px;
+    pointer-events: none;
+}

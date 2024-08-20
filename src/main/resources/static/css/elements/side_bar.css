@@ -14,6 +14,8 @@
 }
 
 .side-bar{
+    position: relative;
+    z-index: 999;
     padding: 15px;
     top: 100px;
     left: -550px;
