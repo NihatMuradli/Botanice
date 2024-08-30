@@ -24,6 +24,7 @@
     max-width: 500px;
     min-width: 250px;
     height: 80%;
+    background-color: none;
     border: 2px solid var(--white);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
