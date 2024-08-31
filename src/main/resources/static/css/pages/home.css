@@ -1,8 +1,11 @@
 :root {
     --dark-green-: #457744;
     --dark-green-faded:#457744b4 ;
+    --light-green:#80C26D;
     --white: #ffffff;
     --white-faded: #ffffff86;
+    --smoke:#feecab; 
+    --light-smoke:#fcf2cd;
 }
 
 * {
@@ -15,7 +18,7 @@
 .container{
     width: 100%;
     margin: 0;
-    background: var(--dark-green-);
+    background: var(--smoke);
 }
 
 .welcome-img{
