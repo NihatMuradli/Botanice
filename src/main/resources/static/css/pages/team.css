@@ -91,9 +91,9 @@
 }
 
 .team-card.active .member{
-    padding: 30px;
-    padding-right: 10px;
-    border: 5px solid var(--white);
+    padding: 0;
+    padding-right: 0;
+    border: none;
     border-right: none;
     display: grid;
     animation-name: teamMemeber;
@@ -102,15 +102,24 @@
     animation-fill-mode: forwards;
     animation-direction: alternate;
     animation-duration: 1s;
-    width: 35em;
+    animation-delay: 0.7s;
+    width: 0;
 }
 
 @keyframes teamMemeber {
     from{
+        padding-right: 0;
         width: 0;
+        padding: 0;
+        border: none;
+        border-right: none;
     }
     to{
+        padding-right: 10px;
         width: 35em;
+        padding: 30px;
+        border: 5px solid var(--white);
+        border-right: none;
     }
 }
 
@@ -153,6 +162,7 @@
     border-radius: 15px;
     object-fit: cover;
     align-self: end;
+    user-select: none;
 }
 
 .team-exp{
@@ -170,15 +180,10 @@
 }
 
 .team-card.remove .team-exp{
-    animation-name: teamMemeberExp;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
-    animation-fill-mode: forwards;
-    animation-direction: alternate;
-    animation-duration: .7s;
+    animation: teamMemeberExp 0.7s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate;
 }
 
-@keyframes teamMemeberExp {
+@keyframes teamMemeberExp{
     0%{
         border-left: none;
         border-top-left-radius: 0;
@@ -199,8 +204,18 @@
 .team-card.active .team-exp{
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    border-left: none;
+    border-left:  5px solid var(--white);
     backdrop-filter: none;
+    animation: teamMemeberExpActive 0.1s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate 0.7s;
+}
+
+@keyframes teamMemeberExpActive{
+    0%{
+        border-left: 5px solid var(--white);
+    }
+    100%{
+        border-left: none;
+    }
 }
 
 .team-member{
@@ -255,12 +270,7 @@
 
 .team-card.active .team-btn{
     transform: rotate(-90deg);
-    animation-name: teamMemeberBtn;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
-    animation-fill-mode: forwards;
-    animation-direction: alternate;
-    animation-duration: .7s;
+    animation: teamMemeberBtn 0.7s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate;
 }
 
 @keyframes teamMemeberBtn {
@@ -274,12 +284,7 @@
 
 .team-card.remove .team-btn{
     transform: rotate(-90deg);
-    animation-name: teamMemeberBtnRemove;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
-    animation-fill-mode: forwards;
-    animation-direction: alternate;
-    animation-duration: .7s;
+    animation: teamMemeberBtnRemove 0.7s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate;
 }
 
 @keyframes teamMemeberBtnRemove {

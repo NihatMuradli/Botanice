@@ -152,7 +152,7 @@
 
 .link-list .link:nth-child(1):hover~.animation{
     left: 0;
-    width: 85px;
+    width: 92px;
 }
 
 .link-list .link:nth-child(2):hover{
@@ -165,8 +165,8 @@
 }
 
 .link-list .link:nth-child(2):hover~.animation{
-    left: 85px;
-    width: 105px;
+    left: 92px;
+    width: 110px;
 }
 
 .link-list .link:nth-child(3):hover{
@@ -179,8 +179,8 @@
 }
 
 .link-list .link:nth-child(3):hover~.animation{
-    left: 190px;
-    width: 100px;
+    left: 202px;
+    width: 108px;
 }
 
 .link-list .link:nth-child(4):hover{
@@ -193,8 +193,8 @@
 }
 
 .link-list .link:nth-child(4):hover~.animation{
-    left: 290px;
-    width: 120px;
+    left: 312px;
+    width: 140px;
 }
 
 /* account section (buttons of log in or sign up) */

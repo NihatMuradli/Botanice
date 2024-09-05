@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../static/css/elements/body.css">
     <link rel="stylesheet" href="../static/css/elements/header.css">
     <link rel="stylesheet" href="../static/css/pages/team.css">
+    <link rel="stylesheet" href="../static/css/pages/video.css">
+    <link rel="stylesheet" href="../static/css/elements/footer.css">
     <link rel="icon" type="image/x-icon" href="../static/images/botanic-e-icon-green.png">
     <script src="https://kit.fontawesome.com/cfe474865a.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
@@ -60,11 +62,11 @@
                 <button class="side-btn"><i class="fa-solid fa-angle-right"></i></button>
             </div>
             <ul class="page-links">
-                <li class="page-link"><i class="fa-regular fa-house"></i><a href="">Home</a></li>
-                <li class="page-link"><i class="fa-regular fa-flower-tulip"></i><a href="">Flowers</a></li>
-                <li class="page-link"><i class="fa-regular fa-robot"></i><a href="">Robots</a></li>
-                <li class="page-link"><i class="fa-regular fa-leaf"></i><a href="">Risky Flowers</a></li>
-                <li class="page-link"><i class="fa-regular fa-cart-shopping"></i><a href="">Market Place</a></li>
+                <li class="page-link"><a href=""><i class="fa-regular fa-house"></i><span href="#">Home</span></a></li>
+                <li class="page-link"><a href="flowers/index.html"><i class="fa-regular fa-flower-tulip"></i><span>Flowers</span></a></li>
+                <li class="page-link"><a href=""><i class="fa-regular fa-robot"></i><span href="">Robots</span></a></li>
+                <li class="page-link"><a href=""><i class="fa-regular fa-leaf"></i><span href="">Risky Flowers</span></a></li>
+                <li class="page-link"><a href=""><i class="fa-regular fa-cart-shopping"></i><span href="">Market Place</span></a></li>
                 <li class="side-animation"></li>
             </ul>
         </section>
@@ -146,11 +148,61 @@
             </div>
         </article>
 
+        <article class="video-container">
+            <img class="video-texture" src="../static/images/wave-reversed.svg" alt="reverse-wave">
+            <div class="video-frame">
+                <video class="video" src="../static/vidoes/myVideoTest.mp4" muted loop autoplay="autoplay"></video>
+                <a href="google.com" class="video-overlay">
+                    <div class="video-btn">
+                        <i class="fa-regular fa-play"></i>
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <p class="video-text">What is this freaking Botanic-e?</p>
+                </a>
+            </div>
+        </article>
+        
+        <footer class="footer">
+            <div class="footer-main">
+                <div class="footer-link-container">
+                    <a class="footer-img-link" href=""><img class="footer-img" src="../static/images/botanic-e-white-full-2k.png" alt=""></a>
+                    <a class="footer-get-in" href="">Get in tocuh <i class="fa-sharp fa-light fa-arrow-right-long"></i></a>
+                </div>
+                <div class="footer-link-container">
+                    <div class="link-title">Shortly, Us</div>
+                    <p class="link-desc"> As the Village Boys team, each of us brings years of experience in fields such as 3D design, Frontend, Backend, Robotics, and more, creating solutions aimed at the challenges of the new era. Along this journey, we have participated in international competitions like WRO and ISEF with projects like Robocean. Now, we are making a grand entrance with the Botanic-e project</p>
+                    <ul class="social-links">
+                        <li class="social-link"><a href="https://www.instagram.com/_village.boys_/"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li class="social-link"><a href="https://www.youtube.com/watch?v=BVgqaZ1Nbe0&t=4s"><i class="fa-brands fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-link-container">
+                    <div class="link-title">Help</div>
+                    <ul class="footer-links help">
+                        <li class="footer-link"><a href="access/login.html">Log In</a></li>
+                        <li class="footer-link"><a href="">Platform</a></li>
+                        <li class="footer-link"><a href="">About Us</a></li>
+                        <li class="footer-link"><a href="">Solition</a></li>
+                        <li class="footer-link"><a href="">Market System</a></li>
+                    </ul>
+                </div>
+                <div class="footer-link-container">
+                    <div class="link-title">Contact</div>
+                    <ul class="footer-links">
+                        <li class="footer-link"><i class="fa-solid fa-phone"></i><a href="">+994(50)723 91 77</a></li>
+                        <li class="footer-link"><i class="fa-solid fa-envelope"></i><a href="">office@botanic-e.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copy-right">The Web Site Copy Righted by Team of Village Boys 2024 </div>
+        </footer>
+
     </main>
 
     <script src="../static/js/elements/welcome.js"></script>
     <script src="../static/js/elements/side_bar.js"></script>
     <script src="../static/js//elements/header.js"></script>
     <script src="../static/js/elements/team.js"></script>
+    <script src="../static/js/elements/video.js"></script>
 </body>
 </html>
