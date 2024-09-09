@@ -30,6 +30,10 @@
     justify-content: space-between;
 }
 
+.header.logged{
+
+}
+
 .menu-logo{
     display: flex;
     align-items: center;
