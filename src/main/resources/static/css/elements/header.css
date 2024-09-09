@@ -14,9 +14,9 @@
 
 
 .header{
+    position: relative;
     position: fixed;
     z-index: 999;
-    overflow: hidden;
     top: 10px;
     height: 80px;
     width: 90%;
@@ -30,9 +30,190 @@
     justify-content: space-between;
 }
 
-.header.logged{
-
+.header.logged .account{
+    display: none;
 }
+
+.user{
+    display: none;
+    border: 2px solid var(--white);
+    padding: 20px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    color: var(--white);
+    margin-right: 10px;
+    transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.user i{
+    margin-left: 10px;
+}
+
+.user.active i{
+    animation-name: loginIcon;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-duration: 0.6s;
+    transform: rotate(90deg);
+}
+
+@keyframes loginIcon {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(90deg);
+    }
+}
+
+.user.remove i{
+    animation-name: loginIconRemove;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-duration: 0.6s;
+    transform: rotate(0deg);
+}
+
+@keyframes loginIconRemove {
+    from{
+        transform: rotate(90deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+}
+
+.user:hover{
+    background-color:var(--dark-green-faded);
+}
+
+.header.logged .user{
+    display: block;
+}
+
+.user-container{
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    width: 200px;
+    list-style: none;
+    position: absolute;
+    right: 20px;
+    margin-top: 200px;
+    border-radius: 0;
+    height: 0;
+}
+
+.user-container.active{
+    animation-name: login;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-duration: .3s;
+    border-radius: 0px;
+    border: none;
+    padding: none;
+    height: 0;
+    padding: 0;
+}
+
+@keyframes login {
+    0%{
+        border-radius: 0px;
+        border: none;
+        padding: none;
+        height: 0;
+        padding: 0;
+    }
+    20%{
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid var(--white);
+        height: 0;
+    }
+    100%{
+        border-radius: 10px;
+        height: max-content;
+        border: 2px solid var(--white);
+        padding: 10px;
+    }
+}
+
+.user-container.remove{
+    animation-name: loginDelete;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-duration: .3s;
+    border-radius: 0px;
+    border: none;
+    padding: none;
+    height: 0;
+}
+
+@keyframes loginDelete {
+    0%{
+        border-radius: 10px;
+        height: max-content;
+        border: 2px solid var(--white);
+        padding: 10px;
+
+    }
+    60%{
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid var(--white);
+        height: 25%;
+    }
+    100%{
+        border-radius: 0px;
+        border: none;
+        height: 0;
+        padding: 0;
+    }
+}
+
+.username{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: var(--white);
+    font-size: 1.2em;
+}
+
+.name{
+    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    color: var(--white);
+}
+
+.name:hover{
+    transform: translate(5px,0);
+}
+
+.username i{
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
+.log-out{
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 1.2em;
+}
+
+.log-out i{
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
 
 .menu-logo{
     display: flex;
