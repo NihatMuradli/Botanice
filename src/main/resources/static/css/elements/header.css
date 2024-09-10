@@ -232,6 +232,8 @@
     align-items: center;
     background-color: transparent;
     transition: background-color 0.3s ease;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .menu.active{
