@@ -4,14 +4,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     const accountBtn = document.querySelector(".user");
     const userConatiner = document.querySelector(".user-container");
     const user = document.querySelector(".user");
+    const logoutButton = document.querySelector(".log-out")
 
-    accountBtn.addEventListener("click", ()=>{
-        if(userConatiner.classList.contains("active")){
+    accountBtn.addEventListener("click", () => {
+        if (userConatiner.classList.contains("active")) {
             userConatiner.classList.remove("active");
             userConatiner.classList.add("remove");
             user.classList.remove("active");
             user.classList.add("remove");
-        }else{
+        } else {
             userConatiner.classList.add("active");
             userConatiner.classList.remove("remove");
             user.classList.add("active");
@@ -31,9 +32,16 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
 
             if (response.ok) {
-                // add user name to class
-                //userName.innerHTML = 
+                const userData = await response.json();
+                const username = userData.username;
+                userName.innerHTML = username;
                 loggedHeader.classList.add("logged");
+
+                logoutButton.addEventListener('click', function () {
+
+                    localStorage.removeItem('jwtToken');
+                    window.location.reload()
+                });
             } else {
                 //Token is not validated so no user
                 console.log("Token is not validated so no user")
