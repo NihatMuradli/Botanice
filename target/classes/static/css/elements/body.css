@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-:root {
-    --dark-green-: #457744;
-    --white: #ffffff;
-=======
 @font-face{
     font-family: "Integral";
     src:url(../../fonts/Integral/Fontspring-DEMO-integralcf-bold.otf);
@@ -13,12 +8,21 @@
     src: url("../../fonts/Gunship/gunshipbold.ttf");
 }
 
+@font-face {
+    font-family:"Gunship Bold Italic";
+    src: url("../../fonts/Gunship/gunshipacadital.ttf");
+}
+
+@font-face {
+    font-family:"Impact Wrench";
+    src: url("../../fonts/ImpactWrench/impact.ttf");
+}
+
 :root {
     --dark-green-: #457744;
     --dark-green-faded:#457744b4 ;
     --white: #ffffff;
     --white-faded: #ffffff86;
->>>>>>> b7d6a3c435921888fb347ae2d647bdaab9b15c2e
 }
 
 * {
@@ -34,27 +38,16 @@ body {
     overflow-x: hidden;
     display:flex;
     justify-content: center;
-    background-color: transparent;
 }
 
 .wrap{
     position: relative;
     display: flex;
-<<<<<<< HEAD
-    align-items: center;
-    justify-content: center;
-=======
     flex-direction: column;
-    align-items: center;
     justify-content: start;
->>>>>>> b7d6a3c435921888fb347ae2d647bdaab9b15c2e
-    height: 100vh;
+    align-items: center;
     width: 100%;
-    max-width: 1500px !important;
+    max-width: 2000px !important;
     background-color: transparent;
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> b7d6a3c435921888fb347ae2d647bdaab9b15c2e
