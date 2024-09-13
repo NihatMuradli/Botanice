@@ -1,0 +1,297 @@
+:root {
+    --dark-green-: #457744;
+    --dark-green-faded:#457744b4 ;
+    --dark-green-deed:#45774479 ;
+    --light-green:#80C26D;
+    --white: #ffffff;
+    --white-faded: #ffffff86;
+    --smoke:#feecab; 
+    --light-smoke:#fcf2cd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.team-container{
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    padding: 100px 40px 40px 40px;
+    background-color: var(--smoke);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.texture{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 0;
+}
+
+.team-img-container{
+    width: 40%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 170px 0;
+    border: 5px solid var(--white);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-img{
+    object-fit: cover;
+    width: 90%;
+}
+
+.team-card-container{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0 20px;
+}
+
+.team-card{
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    border-radius: 15px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-green-deed);
+}
+
+.team-card.active{
+    backdrop-filter: blur(25px);
+}
+
+.member{
+    overflow: hidden;
+    height: 100%;
+    width: 0;
+    padding: 30px;
+    padding-right: 10px;
+    border: 5px solid var(--white);
+    border-radius: 15px;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    display: none;
+}
+
+.team-card.active .member{
+    padding: 0;
+    padding-right: 0;
+    border: none;
+    border-right: none;
+    display: grid;
+    animation-name: teamMemeber;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-delay: 0.7s;
+    width: 0;
+}
+
+@keyframes teamMemeber {
+    from{
+        padding-right: 0;
+        width: 0;
+        padding: 0;
+        border: none;
+        border-right: none;
+    }
+    to{
+        padding-right: 10px;
+        width: 35em;
+        padding: 30px;
+        border: 5px solid var(--white);
+        border-right: none;
+    }
+}
+
+.team-card.remove .member{
+    padding: 0;
+    border: none;
+    display: grid;
+    animation-name: teamMemeberRemove;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.79,.14,.15,.86);
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-duration: .7s;
+    width: 0;
+}
+
+@keyframes teamMemeberRemove {
+    0%{
+        padding: 30px;
+        border: 5px solid var(--white);
+        border-right: none;
+        width: 35em;
+    }
+    95%{
+        width: 0;
+        padding: 30px;
+        border: 5px solid var(--white);
+        border-right: none;
+    }
+    100%{
+        width: 0;
+        padding: 0;
+        border: none;
+        border-right: none;
+    }
+}
+
+.member-photo{
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    align-self: end;
+    user-select: none;
+}
+
+.team-exp{
+    overflow: hidden;
+    height: 100%;
+    width: 6em;
+    border-radius: 15px;
+    border: 5px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 60px 0 30px 0;
+    backdrop-filter: blur(25px);
+}
+
+.team-card.remove .team-exp{
+    animation: teamMemeberExp 0.7s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate;
+}
+
+@keyframes teamMemeberExp{
+    0%{
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    95%{
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    100%{
+        border: 5px solid var(--white);
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+}
+
+.team-card.active .team-exp{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left:  5px solid var(--white);
+    backdrop-filter: none;
+    animation: teamMemeberExpActive 0.1s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate 0.7s;
+}
+
+@keyframes teamMemeberExpActive{
+    0%{
+        border-left: 5px solid var(--white);
+    }
+    100%{
+        border-left: none;
+    }
+}
+
+.team-member{
+    padding-left: 20px;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: calc(50px * 1.2);
+    color: var(--white);
+    letter-spacing: -2%;
+    margin-bottom: 10px;
+}
+
+.who-is{
+    width: 600px;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 20px;
+    line-height: calc(28px*1.2);
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing:-0.5%;
+    font-weight: 600;
+}
+
+.team-link{
+    font-size: 28px;
+    color: var(--white);
+    font-weight: 400;
+    text-decoration: none;
+    padding-right: 20px;
+    line-height: calc(28px*1.2);
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing:-0.5%;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.team-title{
+    width: max-content;
+    writing-mode: vertical-rl;
+    font-size: 50px;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.team-btn{
+    font-size: 40px;
+    color: var(--white);
+    transform: rotate(90deg);
+}
+
+.team-card.active .team-btn{
+    transform: rotate(-90deg);
+    animation: teamMemeberBtn 0.7s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate;
+}
+
+@keyframes teamMemeberBtn {
+    0%{
+        transform: rotate(90deg);
+    }
+    100%{
+        transform: rotate(-90deg);
+    }
+}
+
+.team-card.remove .team-btn{
+    transform: rotate(-90deg);
+    animation: teamMemeberBtnRemove 0.7s cubic-bezier(.79,.14,.15,.86) 1 forwards alternate;
+}
+
+@keyframes teamMemeberBtnRemove {
+    0%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(90deg);
+    }
+}
