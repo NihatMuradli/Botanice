@@ -14,6 +14,8 @@
 }
 
 .side-bar{
+    position: relative;
+    z-index: 999;
     padding: 15px;
     top: 100px;
     left: -550px;
@@ -22,6 +24,7 @@
     max-width: 500px;
     min-width: 250px;
     height: 80%;
+    background-color: none;
     border: 2px solid var(--white);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -72,15 +75,17 @@
 }
 
 .page-links{
+    width: 100%;
     position: relative;
     list-style: none;
     overflow: hidden;
 }
 
 .page-link{
+    width: 80%;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 10px 30px 10px 15px;
     margin-bottom: 10px;
     border: 2px solid var(--white);
     border-radius: 0 10px 10px 0;
@@ -90,12 +95,24 @@
     transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.page-link:hover{
+.page-link a{
+    padding: 10px 30px 10px 15px;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.page-link:hover a{
     background-color: var(--white);
     color: var(--dark-green-);
 }
 
-.page-link:hover a{
+.page-link:hover a i{
+    color: var(--dark-green-);
+}
+
+.page-link:hover span{
     color: var(--dark-green-);
     transform: translate(-2px,-1px);
 }
@@ -105,10 +122,11 @@
 }
 
 .page-link i{
-    width: 20px;
+    color: var(--white);
 }
 
-.page-link a{
+.page-link span{
+    width: max-content;
     display: block;
     color: var(--white);
     text-decoration: none;
@@ -128,27 +146,27 @@
 
 .page-link:nth-child(1):hover ~ .side-animation{
     top: 0;
-    height: 46px;
+    height: 49px;
 }
 
 .page-link:nth-child(2):hover ~ .side-animation{
-    top: 56px;
-    height: 46px;
+    top: 58px;
+    height: 49px;
 }
 
 .page-link:nth-child(3):hover ~ .side-animation{
-    top: 112px;
-    height: 46px;
+    top: 117px;
+    height: 49px;
 }
 
 .page-link:nth-child(4):hover ~ .side-animation{
-    top: 168px;
-    height: 46px;
+    top: 175px;
+    height: 49px;
 }
 
 .page-link:nth-child(5):hover ~ .side-animation{
-    top: 224px;
-    height: 46px;
+    top: 234px;
+    height: 49px;
 }
 
 @media screen and (max-width: 576px) {
