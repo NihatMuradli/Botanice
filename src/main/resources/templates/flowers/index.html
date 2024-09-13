@@ -96,8 +96,29 @@
         <aside class="add-modal">
                 <button class="modal-header-btn"><i class="fa-solid fa-xmark-large"></i></button>
                 <div class="modal-body">
+                    <h1 class="title">Register</h1>
                     <div class="modal-side">
-                        
+                        <form class="form" id="form" method="post">
+                            <div class="input-box">
+                                <span class="icon"><i class="fa-solid fa-hashtag-lock"></i></span>
+                                <input id="flower-id" name="flower-id" type="text" required>
+                                <label for="flower-id">Flower ID</label>
+                            </div>
+                            <div class="input-box">
+                                <span class="icon"><i class="fa-solid fa-seedling"></i></span>
+                                <input id="kind" name="password" type="text" required>
+                                <label for="kind">Kind</label>
+                            </div>
+                            <div class="input-box">
+                                <span class="icon"><i class="fa-solid fa-calendar"></i></span>
+                                <input id="date" name="date" type="date" required>
+                                <label for="date">Born Date</label>
+                            </div>                            
+                            <div class="input-btn-box">
+                                <input value="Register" class="btn submit" name="submit" type="submit">
+                                <input value="Cancel" class="btn cancel" name="cancel" type="button">
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-img-conatiner">
                         <img src="../../static/images/robot/botanic-e-innocent-looking.png" alt="" class="modal-img">

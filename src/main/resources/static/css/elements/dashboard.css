@@ -305,3 +305,147 @@
     aspect-ratio: 1/1;
     width: 100%;
 }
+
+.modal-body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title{
+    display: block;
+    width: 50%;
+    text-align: center;
+    font-size: 5rem;
+    color: var(--dark-green-);
+    margin: 40px 10px 70px;
+}
+
+.modal-side{
+    padding: 0 50px;
+    width: 50%;
+    height: 100%;
+}
+
+/*Form section*/
+
+.form{
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, auto) 1fr;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    border-bottom: 4px solid var(--dark-green-);
+    margin: 20px 0;
+}
+
+.input-box:nth-child(3){
+    height: 90px;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    font-size: 2rem;
+    transform: translateY(-50%);
+    font-weight: 500;
+    pointer-events: none;
+    color: var(--dark-green-);
+    transition: all .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -3px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 2em;
+    font-weight: 500;
+    color: var(--dark-green-);
+    padding-left: 2px;
+    padding-right: 50px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    font-size: 2.3rem;
+    color: var(--dark-green-);
+}
+
+input[type="date"] {
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 2px;
+    padding-right: 50px;
+    font-size: 2rem;
+    color: var(--dark-green-);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-moz-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]:not(:placeholder-shown) ~ label {
+    top: -6px;
+}
+
+.input-btn-box{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: end;
+    grid-row: 4;
+    gap: 3%;
+    padding: 10px;
+    padding-bottom: 60px;
+}
+
+.btn {
+    height: 70px;
+    font-size: 2em;
+    font-weight: 500;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--dark-green-);
+    border: 4px solid var(--dark-green-);
+    transition: all .4s;
+}
+
+.cancel{
+    color: #c41010;;
+    border: 4px solid #c41010;;
+}
+
+.btn:hover {
+    color: #fff;
+    background: var(--dark-green-);
+    transform: translate(-3px, -4px);
+}
+
+.cancel:hover{
+    background: #c41010;
+}
+
+.btn:active {
+    transform: translate(3px, 4px);
+}
