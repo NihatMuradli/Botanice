@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,9 +26,9 @@ public class Flower {
 	@Id
 	private String flowerId;
 
-	private String type;
+	private String specie;
 
-	private LocalDate borntime;
+	private LocalDate birthdate;
 
 	private Double nitrogen;
 

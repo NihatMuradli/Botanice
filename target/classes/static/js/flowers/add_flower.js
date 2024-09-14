@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const flowerIDvalue = document.querySelector('#flower-id').value.replace('#', '');
         const specie = document.querySelector('#specie').value;
         const date = document.querySelector('#date').value;
+        console.log(date);
         try {
             const isFlowerIdAvailable = await checkFlowerIdAvailability(flowerIDvalue);
             if (!isFlowerIdAvailable) {

@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.botanice.model.Flower;
 import com.botanice.repository.FlowerRepository;
 import com.botanice.util.JwtUtil;
 
@@ -30,5 +30,15 @@ public class FlowerController {
 	@Autowired
 	private JwtUtil jwtUtil;
 	
-	
+	@PostMapping("/addFlower")
+	public ResponseEntity<Flower> signup(@RequestBody Flower flower) {
+		Flower resultFlower = flowerRepository.save(flower);
+
+		return new ResponseEntity<Flower>(resultFlower, HttpStatus.CREATED);
+	}
+	@GetMapping("/checkFlowerId/{flowerId}")
+    public ResponseEntity<Boolean> checkFlowerIdAvailability(@PathVariable String flowerId) {
+        boolean isFlowerIdAvailable = flowerRepository.findByFlowerId(flowerId).isEmpty();
+        return new ResponseEntity<>(isFlowerIdAvailable, HttpStatus.OK);
+    }
 }

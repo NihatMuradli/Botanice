@@ -10,5 +10,5 @@ import com.botanice.model.Flower;
 
 @Repository
 public interface FlowerRepository extends JpaRepository<Flower, String> {
-	
+	public Optional<Flower> findByFlowerId(String flowerId);
 }

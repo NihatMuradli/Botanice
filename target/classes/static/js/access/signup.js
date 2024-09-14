@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     location.replace("login.html");
                 }, 1500);
-            console.log('Created Shop Account:', createdAccount);
+            console.log('Created User Account:', createdAccount);
         } catch (error) {
             console.error('Error during sign up:', error);
             const alertBox = document.querySelector('#alertBox')
