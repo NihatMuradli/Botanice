@@ -1,5 +1,6 @@
 :root {
     --dark-green-: #457744;
+    --green-: #4c924b;
     --dark-green-faded:#457744b4 ;
     --dark-green-deed:#45774479 ;
     --light-green:#80C26D;
@@ -19,13 +20,15 @@
 }
 
 .plant-container{
+    height: min-content;
     width: 100%;
+    padding-bottom: 50px;
 }
 
 .head-conatiner{
     position: relative;
     width: 100%;
-    height: 35%;
+    height: 60vh;
     overflow: hidden;
 }
 
@@ -38,9 +41,9 @@
     position: absolute;
     z-index: 2;
     left: 50px;
-    bottom: 30px;
+    bottom: 120px;
     padding: 15px 100px 15px 30px; 
-    background-color: var(--light-smoke);
+    background-color: var(--white);
     border-radius: 20px;
     border: 6px solid var(--dark-green-);
     display: flex;
@@ -49,4 +52,120 @@
     color: var(--dark-green-);
     font-size: 80px;
     font-style: italic;
+    user-select: none;
+}
+
+.head-conatiner-blur{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(0deg, #6ba75e, rgba(106, 166, 93, 0.29), #ff8fa700)
+}
+
+.plant{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+
+.back-wave{
+    position: absolute;
+    z-index: -1; 
+}
+
+.plant-data{
+    width: 60%;
+    border-radius: 15px;
+    border: 4px solid var(--light-green);
+    background-color: var(--white);
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.plant-img-conatiner{
+    width: 40%;
+    margin-right: 40px;
+}
+
+.plant-img{
+    aspect-ratio: 1/1;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid var(--light-green);
+}
+
+/* Data containers*/
+
+.data-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.data-headline{
+    font-weight: 600;
+    font-size: 4rem;
+    background: url("../../images/wave.svg");
+    background-repeat: no-repeat;
+    background-size: 1500%;
+    background-position: 0,0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-left: 30px;
+}
+
+.data-headline i{
+    font-size: 3.5rem;
+    margin-right: 10px;
+}
+
+.hr{
+    width: 100%;
+    height: 8px;
+    background-color: var(--green-);
+    border-radius: 10px;
+    margin: 10px 0 20px;
+}
+
+.data-box{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2.5%;
+    padding: 0 10px;
+}
+
+.data-li{
+    padding: 10px;
+    border-radius: 10px;
+
+    margin-bottom: 5px;
+}
+
+.data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-title{
+    font-size: 1.5rem;
+    width: 50%;
+    color: var(--dark-green-);
+}
+
+.data-title i{
+    width: 20%;
+}
+
+.data-value{
+    font-size: 1.5rem;
+    color: var(--dark-green-);
+    text-align: left;
+    width:50%;
 }
