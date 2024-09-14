@@ -1,9 +1,16 @@
 package com.botanice.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +22,37 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Flower {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String flowerId;
+
+	private String type;
+
+	private LocalDate borntime;
+
+	private Double nitrogen;
+
+	private Double phosphorus;
+
+	private Double potassium;
+
+	@Lob
+	@Column(name = "image", columnDefinition = "BLOB")
+	private byte[] image;
 	
-	 
+	private Double humidity;
+	
+	private Double temperature;
+	
+	private Double conductivity;
+	
+	private Double ph;
+	
+	private Boolean onsale;
+	
+	private Double price;
+
+	private LocalDateTime timestamp;
+
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private User user;
 }
