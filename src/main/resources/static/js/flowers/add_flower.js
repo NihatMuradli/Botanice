@@ -61,18 +61,37 @@ document.addEventListener('DOMContentLoaded', function () {
         const specie = document.querySelector('#specie').value;
         const date = document.querySelector('#date').value;
         try {
-            const isFlowerIdAvailable = await checkFlowerIdAvailability(flowerIDvalue);
-            if (!isFlowerIdAvailable) {
-                alert("Flower ID is already taken. Please choose another.");
-                return;
+            const token = localStorage.getItem('jwtToken');
+            if (token) {
+                const jwtResponse = await fetch('http://localhost:5000/api/users/validate', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                });
+
+                if (jwtResponse.ok) {
+                    const isFlowerIdAvailable = await checkFlowerIdAvailability(flowerIDvalue);
+                    const userData = await jwtResponse.json();
+                    if (!isFlowerIdAvailable) {
+                        alert("Flower ID is already taken. Please choose another.");
+                        return;
+                    }
+                    console.log(userData);
+                    const flower = { flowerId: flowerIDvalue, specie, birthdate: date, user: { id: userData.userId } };
+
+                    const createdFlower = await registerFlower(flower);
+
+                    alert("Flower added successfully");
+                    console.log('Created Flower:', createdFlower);
+                } else {
+                    //Token is not validated so no user
+                    console.log("Token is not validated so no user")
+                }
+            } else {
+                // token wasnt found which means no user is logged in
+                console.log("token wasnt found which means no user is logged in")
             }
-
-            const flower = { flowerId: flowerIDvalue, specie, birthdate: date };
-
-            const createdFlower = await registerFlower(flower);
-
-            alert("Flower added successfully");
-            console.log('Created Flower:', createdFlower);
         } catch (error) {
             console.error('Error during flower signup:', error);
             alert("There was an error while adding the flower. Please try again.");
