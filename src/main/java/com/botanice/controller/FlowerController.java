@@ -1,7 +1,7 @@
 package com.botanice.controller;
 
-import java.util.HashMap;
-import java.util.Optional;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.botanice.model.Flower;
 import com.botanice.repository.FlowerRepository;
-import com.botanice.util.JwtUtil;
+
 
 
 
@@ -27,14 +27,16 @@ public class FlowerController {
 	@Autowired
 	private FlowerRepository flowerRepository;
 	
-	@Autowired
-	private JwtUtil jwtUtil;
 	
 	@PostMapping("/addFlower")
-	public ResponseEntity<Flower> signup(@RequestBody Flower flower) {
+	public ResponseEntity<Flower> addFlower(@RequestBody Flower flower) {
 		Flower resultFlower = flowerRepository.save(flower);
 
 		return new ResponseEntity<Flower>(resultFlower, HttpStatus.CREATED);
+	}
+	@GetMapping("/getFlowers")
+	public ResponseEntity<List<Flower>> getFlowers() {
+		return new ResponseEntity<List<Flower>>(flowerRepository.findAll(), HttpStatus.OK);
 	}
 	@GetMapping("/checkFlowerId/{flowerId}")
     public ResponseEntity<Boolean> checkFlowerIdAvailability(@PathVariable String flowerId) {

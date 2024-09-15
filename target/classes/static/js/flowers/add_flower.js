@@ -63,27 +63,28 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             const token = localStorage.getItem('jwtToken');
             if (token) {
-                const response = await fetch('http://localhost:5000/api/users/validate', {
+                const jwtResponse = await fetch('http://localhost:5000/api/users/validate', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
                 });
 
-                if (response.ok) {
+                if (jwtResponse.ok) {
                     const isFlowerIdAvailable = await checkFlowerIdAvailability(flowerIDvalue);
+                    const userData = await jwtResponse.json();
                     if (!isFlowerIdAvailable) {
                         alert("Flower ID is already taken. Please choose another.");
                         return;
                     }
-
-                    const flower = { flowerId: flowerIDvalue, specie, birthdate: date, user: { id: response.owner_id } };
+                    console.log(userData);
+                    const flower = { flowerId: flowerIDvalue, specie, birthdate: date, user: { id: userData.userId } };
 
                     const createdFlower = await registerFlower(flower);
 
                     alert("Flower added successfully");
                     console.log('Created Flower:', createdFlower);
-                }else {
+                } else {
                     //Token is not validated so no user
                     console.log("Token is not validated so no user")
                 }
