@@ -116,38 +116,80 @@
                         </ul>
                     </div>
                     <div class="data-container">
-                        <div class="data-headline"><i class="fa-solid fa-cog"></i>General</div>
+                        <div class="data-headline"><i class="fa-solid fa-seedling"></i>Plant Health</div>
                         <div class="hr"></div>
                         <ul class="data-box">
                             <li class="data-li">
                                 <div class="data">
-                                    <div class="data-title"><i class="fa-solid fa-user"></i>Owner</div>
-                                    <div class="data-value">Alibali</div>
+                                    <div class="data-title"><i class="fa-solid fa-heartbeat"></i>Condition</div>
+                                    <div class="data-value" id="condition">Good</div>
                                 </div>
                             </li>
                             <li class="data-li">
                                 <div class="data">
-                                    <div class="data-title"><i class="fa-solid fa-id-card"></i>Flover ID</div>
-                                    <div class="data-value">#VILLFL</div>
+                                    <div class="data-title"><i class="fa-solid fa-flask"></i>Phosphorus</div>
+                                    <div class="data-value" id="phosphorus">133mg</div>
                                 </div>
                             </li>
                             <li class="data-li">
                                 <div class="data">
-                                    <div class="data-title"><i class="fa-solid fa-leaf"></i>Kind</div>
-                                    <div class="data-value">Ficus</div>
+                                    <div class="data-title"><i class="fa-solid fa-vial"></i>Nitrogen</div>
+                                    <div class="data-value" id="nitrogen">103mg</div>
                                 </div>
                             </li>
                             <li class="data-li">
                                 <div class="data">
-                                    <div class="data-title"><i class="fa-solid fa-seedling"></i>Born Time</div>
-                                    <div class="data-value">12-03-2023</div>
+                                    <div class="data-title"><i class="fa-solid fa-leaf"></i>Potassium</div>
+                                    <div class="data-value" id="potassium">76mg</div>
                                 </div>
                             </li>
                             <li class="data-li">
                                 <div class="data">
-                                    <div class="data-title"><i class="fa-solid fa-hourglass-half"></i>Life Time</div>
-                                    <div class="data-value">3 month, 5 day</div>
+                                    <div class="data-title"><i class="fa-solid fa-tint"></i>Humidity</div>
+                                    <div class="data-value" id="humidity">79%</div>
                                 </div>
+                            </li>
+                            <li class="data-li">
+                                <div class="data">
+                                    <div class="data-title"><i class="fa-solid fa-temperature-high"></i>Temperature</div>
+                                    <div class="data-value" id="temperature">23C</div>
+                                </div>
+                            </li>
+                            <li class="data-li">
+                                <div class="data">
+                                    <div class="data-title"><i class="fa-solid fa-bolt"></i>Conductivity</div>
+                                    <div class="data-value" id="conductivity">3.4 mS/mg</div>
+                                </div>
+                            </li>
+                            <li class="data-li">
+                                <div class="data">
+                                    <div class="data-title"><img class="data-img-icon" src="../../static/images/output-onlinepngtools.png" alt=""> pH</div>
+                                    <div class="data-value" id="ph">7.9</div>
+                                </div>
+                            </li>
+                            <li class="data-li">
+                                <div class="data">
+                                    <div class="data-title"><i class="fa-solid fa-clock"></i>Adding Time</div>
+                                    <div class="data-value" id="adding-time ">12-03-2023</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="data-container">
+                        <div class="data-headline"><i class="fa-solid fa-tags"></i>Sell</div>
+                        <div class="hr"></div>
+                        <ul class="data-box">
+                            <li class="data-li">
+                                <button class="sell btn">Sell Flowers</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="data-container">
+                        <div class="data-headline"><i class="fa-solid fa-sliders-h"></i>Control</div>
+                        <div class="hr"></div>
+                        <ul class="data-box">
+                            <li class="data-li">
+                                <button class="delete btn">Delete Ownership</button>
                             </li>
                         </ul>
                     </div>
@@ -157,6 +199,66 @@
                 </div>
             </section>
         </article>
+
+        <div class="back-blur"></div>
+
+        <aside class="sell-modal modal">
+            <button class="modal-header-btn"><i class="fa-solid fa-xmark-large"></i></button>
+            <div class="modal-body">
+                <h1 class="title">Sell</h1>
+                <div class="modal-side">
+                    <form class="form" id="sell-form" method="post">
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-regular fa-tags"></i></span>
+                            <input id="price" name="price" type="text" required>
+                            <label for="price">Price</label>
+                        </div>
+                        <div class="remember">
+                            <label>
+                                <input name="remembering" type="checkbox" required>
+                                Do you accept 5% fee on each sale?
+                            </label>
+                        </div>                                             
+                        <div class="input-btn-box">
+                            <input value="Register" class="btn submit" name="submit" type="submit">
+                            <input value="Cancel" class="btn cancel" name="cancel" type="button">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-img-conatiner">
+                    <img src="../../static/images/robot/botanic-e-innocent-looking.png" alt="" class="modal-img">
+                </div>
+            </div>
+        </aside>
+
+        <aside class="delete-modal modal">
+            <button class="modal-header-btn"><i class="fa-solid fa-xmark-large"></i></button>
+            <div class="modal-body">
+                <h1 class="title">Delete Flower</h1>
+                <div class="modal-side">
+                    <form class="form" id="delete-form" method="post">
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-regular fa-tags"></i></span>
+                            <input id="id" name="id" type="text" required>
+                            <label for="id">Flower ID</label>
+                        </div>
+                        <div class="remember">
+                            <label>
+                                <input name="remembering" type="checkbox" required>
+                                I accept that all data about plant will be deleted!
+                            </label>
+                        </div>                                             
+                        <div class="input-btn-box">
+                            <input value="Register" class="btn submit" name="submit" type="submit">
+                            <input value="Cancel" class="btn cancel" name="cancel" type="button">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-img-conatiner">
+                    <img src="../../static/images/robot/botanic-e-innocent-looking.png" alt="" class="modal-img">
+                </div>
+            </div>
+        </aside>
 
         <footer class="footer">
             <div class="footer-main">
@@ -195,6 +297,7 @@
 
     </main>
 
+    <script src="../../static/js/flowers/profile.js"></script>
     <script src="../../static/js/elements/side_bar.js"></script>
     <script src="../../static/js//elements/header.js"></script>
 </body>

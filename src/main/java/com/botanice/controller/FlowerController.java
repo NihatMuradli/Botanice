@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.botanice.model.Flower;
+import com.botanice.model.User;
 import com.botanice.repository.FlowerRepository;
+
+
 
 
 
@@ -34,9 +37,12 @@ public class FlowerController {
 
 		return new ResponseEntity<Flower>(resultFlower, HttpStatus.CREATED);
 	}
-	@GetMapping("/getFlowers")
-	public ResponseEntity<List<Flower>> getFlowers() {
-		return new ResponseEntity<List<Flower>>(flowerRepository.findAll(), HttpStatus.OK);
+	@GetMapping("/findFlowersByUserId/{userId}")
+	public ResponseEntity<List<Flower>> getFlowersByUserId(@PathVariable Integer userId) {
+		User user = new User();
+		user.setId(userId);
+		List<Flower> userFlowers = flowerRepository.findAllByUser(user);
+		return new ResponseEntity(userFlowers,HttpStatus.OK);
 	}
 	@GetMapping("/checkFlowerId/{flowerId}")
     public ResponseEntity<Boolean> checkFlowerIdAvailability(@PathVariable String flowerId) {
