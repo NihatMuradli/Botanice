@@ -2,6 +2,7 @@ package com.botanice.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.botanice.exception.FlowerNotFoundException;
 import com.botanice.model.Flower;
 import com.botanice.model.User;
 import com.botanice.repository.FlowerRepository;
+
+
 
 
 
@@ -43,6 +47,14 @@ public class FlowerController {
 		user.setId(userId);
 		List<Flower> userFlowers = flowerRepository.findAllByUser(user);
 		return new ResponseEntity(userFlowers,HttpStatus.OK);
+	}
+	@GetMapping("/{flowerId}")
+	public ResponseEntity<Flower> getFlowerById(@PathVariable String flowerId) {
+		Optional<Flower> resultFlower = flowerRepository.findById(flowerId);
+		if(resultFlower.isEmpty()) {
+			throw new FlowerNotFoundException("Flower has not found");
+		}
+		return new ResponseEntity<Flower>(flowerRepository.findById(flowerId).get(), HttpStatus.OK);
 	}
 	@GetMapping("/checkFlowerId/{flowerId}")
     public ResponseEntity<Boolean> checkFlowerIdAvailability(@PathVariable String flowerId) {

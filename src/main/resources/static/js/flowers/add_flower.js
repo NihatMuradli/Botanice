@@ -1,11 +1,10 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     const registerForm = document.querySelector('#form');
     const flowerID = document.querySelector('#flower-id');
     const addBtn = document.querySelector(".add-card");
     const backBlur = document.querySelector(".back-blur");
     const modal = document.querySelector(".add-modal");
     const body = document.querySelector("body");
-
     addBtn.addEventListener("click", () => {
         if (!backBlur.classList.contains("active")) {
             backBlur.classList.add("active");
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         'Authorization': `Bearer ${token}`,
                     },
                 });
-
+                console.log(token);
                 if (jwtResponse.ok) {
                     const isFlowerIdAvailable = await checkFlowerIdAvailability(flowerIDvalue);
                     const userData = await jwtResponse.json();
