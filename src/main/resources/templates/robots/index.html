@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../static/css/elements/body.css">
     <link rel="stylesheet" href="../../static/css/elements/header.css">
     <link rel="stylesheet" href="../../static/css/elements/footer.css">
-    <link rel="stylesheet" href="../../static/css/elements/dashboard.css">
+    <link rel="stylesheet" href="../../static/css/elements/myrobots.css">
     <link rel="icon" type="image/x-icon" href="../../static/images/botanic-e-icon-green.png">
     <script src="https://kit.fontawesome.com/cfe474865a.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
@@ -94,22 +94,17 @@
         <article class="card-container">
             <div class="dashboard">
                 <a href="" class="dash-card">
-                    <img src="../../static/images/ficus-benjamina-care.jpg" alt="card-img" class="dash-img">
+                    <img src="../../static/images/bot-img.jpeg" alt="card-img" class="dash-img">
                     <div class="dash-overlay">
-                        <i class="fa-regular fa-flower-tulip"></i>
-                        <span class="condtion">Good</span>
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="condtion">Working</span>
                     </div>
-                    <div class="dash-type">Ficus</div>
-                    <div class="dash-blurs">
-                        <div class="dash-blur"></div>
-                        <div class="dash-blur"></div>
-                        <div class="dash-blur"></div>
-                    </div>
+                    <div class="dash-type">Botanic-e</div>
                 </a>
             </div>
             <button class="add-card">
                 <div class="add-btn"><i class="fa-regular fa-circle-plus"></i></div>
-                <p class="add-text">You can add your flowers</p>
+                <p class="add-text">You can add your robots</p>
             </button>
         </article>
 
@@ -123,18 +118,18 @@
                     <form class="form" id="form" method="post">
                         <div class="input-box">
                             <span class="icon"><i class="fa-solid fa-hashtag-lock"></i></span>
-                            <input id="flower-id" name="flower-id" type="text" required>
-                            <label for="flower-id">Flower ID</label>
+                            <input id="robot-id" name="robot-id" type="text" required>
+                            <label for="robot-id">Robot ID</label>
                         </div>
                         <div class="input-box">
-                            <span class="icon"><i class="fa-solid fa-seedling"></i></span>
-                            <input id="specie" name="password" type="text" required>
-                            <label for="specie">Specie</label>
+                            <span class="icon"><i class="fa-solid fa-code-branch"></i></span>
+                            <input id="version" name="version" type="text" required>
+                            <label for="version">Version</label>
                         </div>
                         <div class="input-box">
-                            <span class="icon"><i class="fa-solid fa-calendar"></i></span>
-                            <input id="date" name="date" type="date" required>
-                            <label for="date">Birth Date</label>
+                            <span class="icon"><i class="fa-solid fa-battery-full"></i></span>
+                            <input id="battery" name="battery" type="text" required>
+                            <label for="battery">Battery Capacity</label>
                         </div>
                         <div class="input-btn-box">
                             <input value="Register" class="btn submit" name="submit" type="submit">
@@ -195,9 +190,9 @@
     </main>
 
     <script src="../../static/js/elements/user.js"></script>
-    <script src="../../static/js/flowers/add_flower.js"></script>
     <script src="../../static/js/elements/side_bar.js"></script>
     <script src="../../static/js//elements/header.js"></script>
-    <script src="../../static/js/flowers/get_flowers.js"></script>
+    <script src="../../static/js/robots/add_robot.js"></script>
 </body>
+
 </html>
