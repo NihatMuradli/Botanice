@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
 
             if (!response.ok) {
-                location.replace("../../templates/access/login.html");
+               location.replace("../../templates/access/login.html");
                 return;
             }
 
