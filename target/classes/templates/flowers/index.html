@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../static/css/elements/footer.css">
     <link rel="stylesheet" href="../../static/css/elements/dashboard.css">
     <link rel="icon" type="image/x-icon" href="../../static/images/botanic-e-icon-green.png">
-    <script src="https://kit.fontawesome.com/cfe474865a.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cfe474865a.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
     <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
         href="/css/app-wa-09b459cf485d4b1f3304947240314c05.css?vsn=d">
@@ -52,6 +52,19 @@
                 <li class="link"><a href="#"> About Us</a></li>
                 <div class="animation"></div>
             </ul>
+            <div class="user">
+                Account <i class="fa-solid fa-caret-right"></i>
+            </div>
+            <ul class="user-container">
+                <li class="username">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="name">username</span>
+                </li>
+                <li class="log-out">
+                    <i class="fa-regular fa-arrow-right-from-bracket"></i>
+                    <a href="index.html" class="name">Log out</a>
+                </li>
+            </ul>
             <ul class="account">
                 <li class="account-btn"><a href="../access/login.html">Log In</a></li>
                 <li class="account-btn"><a href="../access/signup.html">Sign Up</a></li>
@@ -80,6 +93,19 @@
 
         <article class="card-container">
             <div class="dashboard">
+                <a href="" class="dash-card">
+                    <img src="../../static/images/ficus-benjamina-care.jpg" alt="card-img" class="dash-img">
+                    <div class="dash-overlay">
+                        <i class="fa-regular fa-flower-tulip"></i>
+                        <span class="condtion">Good</span>
+                    </div>
+                    <div class="dash-type">Ficus</div>
+                    <div class="dash-blurs">
+                        <div class="dash-blur"></div>
+                        <div class="dash-blur"></div>
+                        <div class="dash-blur"></div>
+                    </div>
+                </a>
             </div>
             <button class="add-card">
                 <div class="add-btn"><i class="fa-regular fa-circle-plus"></i></div>
@@ -168,9 +194,10 @@
 
     </main>
 
+    <script src="../../static/js/elements/user.js"></script>
     <script src="../../static/js/flowers/add_flower.js"></script>
     <script src="../../static/js/elements/side_bar.js"></script>
-    <script src="../../static/js//elements/header.js"></script>
+    <script src="../../static/js/elements/header.js"></script>
     <script src="../../static/js/flowers/get_flowers.js"></script>
 </body>
 

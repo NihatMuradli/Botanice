@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-
+            console.log(token)
             if (response.ok) {
                 const userData = await response.json();
                 const username = userData.username;
