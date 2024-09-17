@@ -67,5 +67,3 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.error('Error during validation:', error);
     }
 });
-
-
