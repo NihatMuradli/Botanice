@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const deleteBtn = document.querySelector(".delete");
 
     const backBlur = document.querySelector(".back-blur");
-
     const sellModal = document.querySelector(".sell-modal");
     const body = document.querySelector("body");
+    const deleteModal = document.querySelector(".delete-modal");
 
     sellBtn.addEventListener("click", () => {
         if (!backBlur.classList.contains("active")) {
@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
             body.classList.add("no-scroll");
         }
     });
-
-    const deleteModal = document.querySelector(".delete-modal");
 
     deleteBtn.addEventListener("click", () => {
         if (!backBlur.classList.contains("active")) {
@@ -80,6 +78,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Function to calculate the life time in years, months, and days
+    function calculateLifeTime(birthdate) {
+        const birthDate = new Date(birthdate);
+        const today = new Date();
+        let years = today.getFullYear() - birthDate.getFullYear();
+        let months = today.getMonth() - birthDate.getMonth();
+        let days = today.getDate() - birthDate.getDate();
+
+        if (days < 0) {
+            months--;
+            days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        }
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        return { years, months, days };
+    }
+
     // Function to fetch flower data and update HTML
     async function fetchFlowerData(flowerId) {
         try {
@@ -87,12 +105,17 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
 
             // Update HTML with flower data
-            document.querySelector("#user").textContent = data.user;
-            document.querySelector("#flower-id").textContent = data.flowerId;
+            document.querySelector("#user").textContent = data.user.username;
+            document.querySelector("#flower-id").textContent = "#" + data.flowerId;
+            document.querySelector(".head-plant-id").textContent = "#" + data.flowerId;
             document.querySelector("#kind").textContent = data.specie;
             document.querySelector("#born-time").textContent = data.birthdate;
-            //document.querySelector("#life-time").textContent = data.lifeTime;
-            document.querySelector("#condition").textContent = data.condition;
+
+            // Calculate and set life time
+            const lifeTime = calculateLifeTime(data.birthdate);
+            document.querySelector("#life-time").textContent = `${lifeTime.years} years, ${lifeTime.months} months, ${lifeTime.days} days`;
+
+            document.querySelector("#condition").textContent = "Good";
             document.querySelector("#phosphorus").textContent = `${data.phosphorus}mg`;
             document.querySelector("#nitrogen").textContent = `${data.nitrogen}mg`;
             document.querySelector("#potassium").textContent = `${data.potassium}mg`;
@@ -100,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector("#temperature").textContent = `${data.temperature}C`;
             document.querySelector("#conductivity").textContent = `${data.conductivity} mS/mg`;
             document.querySelector("#ph").textContent = data.ph;
-            //document.querySelector("#adding-time").textContent = data.addingTime;
+            document.querySelector("#adding-time").textContent = data.timestamp;
 
             // Optionally set the image source
             const plantImg = document.querySelector('.plant-img');
@@ -156,26 +179,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const deleteForm = document.querySelector('#delete-form'); // Fixed typo from deleteFrom to deleteForm
+    
     deleteForm.addEventListener('submit', async function (event) {
         event.preventDefault();
-        // Handle delete form submission
-        // try {
-        //     const response = await fetch('https://example.com/api/delete', {
-        //         method: 'DELETE',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
-        //         },
-        //         body: JSON.stringify({ flowerId: flowerId })
-        //     });
-        //     if (response.ok) {
-        //         alert('Flower deleted successfully!');
-        //         // Redirect or update UI accordingly
-        //     } else {
-        //         console.error('Error deleting flower:', response.status, response.statusText);
-        //     }
-        // } catch (error) {
-        //     console.error('Error submitting delete form:', error);
-        // }
+        const deleteFlowerId = document.querySelector('#flowerId').value;
+        console.log(deleteFlowerId);
+        console.log(flowerId);
+        try {
+            if (deleteFlowerId == flowerId) {
+                const response = await fetch(`http://localhost:5000/api/flowers/deleteFlower/${flowerId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    },
+                    //body: JSON.stringify({ flowerId: flowerId })
+                });
+                if (response.ok) {
+                    alert('Flower deleted successfully!');
+                    location.replace("index.html");
+                } else {
+                    console.error('Error deleting flower:', response.status, response.statusText);
+                }
+            } else {
+                alert('Flower Id doesnt match');
+            }
+
+        } catch (error) {
+            console.error('Error submitting delete form:', error);
+        }
     });
 });

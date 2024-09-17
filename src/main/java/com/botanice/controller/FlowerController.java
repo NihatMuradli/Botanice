@@ -21,14 +21,6 @@ import com.botanice.model.Flower;
 import com.botanice.model.User;
 import com.botanice.repository.FlowerRepository;
 
-
-
-
-
-
-
-
-
 @RestController
 @CrossOrigin("http://127.0.0.1:5500")
 @RequestMapping("/api/flowers")

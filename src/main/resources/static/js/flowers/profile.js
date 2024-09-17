@@ -193,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
                     },
-                    //body: JSON.stringify({ flowerId: flowerId })
                 });
                 if (response.ok) {
                     alert('Flower deleted successfully!');
