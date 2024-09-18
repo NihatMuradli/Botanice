@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 if (response.ok) {
                     alert('Flower deleted successfully!');
-                    location.replace("index.html");
+                    location.replace("templates/index.html");
                 } else {
                     console.error('Error deleting flower:', response.status, response.statusText);
                 }

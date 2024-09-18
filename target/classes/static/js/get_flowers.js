@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 },
             });
             if (!response.ok) {
-                location.replace("../../templates/access/login.html");
+                location.replace("templates/login.html");
                 return;
             }
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 console.error('Unable to retrieve flower information.');
             }
         } else {
-            location.replace("../../templates/access/login.html");
+            location.replace("templates/login.html");
         }
 
     } catch (error) {
