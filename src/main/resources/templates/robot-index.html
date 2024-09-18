@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/elements/side_bar.css">
-    <link rel="stylesheet" href="../../static/css/elements/body.css">
-    <link rel="stylesheet" href="../../static/css/elements/header.css">
-    <link rel="stylesheet" href="../../static/css/elements/footer.css">
-    <link rel="stylesheet" href="../../static/css/elements/dashboard.css">
-    <link rel="icon" type="image/x-icon" href="../../static/images/botanic-e-icon-green.png">
-    <script src="https://kit.fontawesome.com/cfe474865a.js"></script>
+    <link rel="stylesheet" href="../static/css/side_bar.css">
+    <link rel="stylesheet" href="../static/css/body.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/myrobots.css">
+    <link rel="icon" type="image/x-icon" href="../static/images/botanic-e-icon-green.png">
+    <script src="https://kit.fontawesome.com/cfe474865a.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
     <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
         href="/css/app-wa-09b459cf485d4b1f3304947240314c05.css?vsn=d">
@@ -41,12 +41,12 @@
                         <path class="line" d="M7 16 27 16"></path>
                     </svg>
                 </label>
-                <a href="../index.html">
-                    <img src="../../static/images/botanic-e-white-slogan-hd.png" alt="logo" class="logo">
+                <a href="index.html">
+                    <img src="../static/images/botanic-e-white-slogan-hd.png" alt="logo" class="logo">
                 </a>
             </div>
             <ul class="link-list">
-                <li class="link"><a href="../index.html"> Home</a></li>
+                <li class="link"><a href="index.html"> Home</a></li>
                 <li class="link"><a href="#"> Platform</a></li>
                 <li class="link"><a href="#"> Solution</a></li>
                 <li class="link"><a href="#"> About Us</a></li>
@@ -66,23 +66,23 @@
                 </li>
             </ul>
             <ul class="account">
-                <li class="account-btn"><a href="../access/login.html">Log In</a></li>
-                <li class="account-btn"><a href="../access/signup.html">Sign Up</a></li>
+                <li class="account-btn"><a href="login.html">Log In</a></li>
+                <li class="account-btn"><a href="signup.html">Sign Up</a></li>
             </ul>
         </header>
 
         <section class="side-bar">
             <div class="side-logo-container">
-                <a href="../index.html">
-                    <img src="../../static/images/botanic-e-white-slogan-hd.png" alt="logo" class="side-logo">
+                <a href="index.html">
+                    <img src="../static/images/botanic-e-white-slogan-hd.png" alt="logo" class="side-logo">
                 </a>
                 <button class="side-btn"><i class="fa-solid fa-angle-right"></i></button>
             </div>
             <ul class="page-links">
                 <li class="page-link"><a href=""><i class="fa-regular fa-house"></i><span href="#">Home</span></a></li>
-                <li class="page-link"><a href="flowers/index.html"><i
+                <li class="page-link"><a href="flower-index.html"><i
                             class="fa-regular fa-flower-tulip"></i><span>Flowers</span></a></li>
-                <li class="page-link"><a href="../robots/index.html"><i class="fa-regular fa-robot"></i><span href="">Robots</span></a></li>
+                <li class="page-link"><a href=""><i class="fa-regular fa-robot"></i><span href="">Robots</span></a></li>
                 <li class="page-link"><a href=""><i class="fa-regular fa-leaf"></i><span href="">Risky
                             Flowers</span></a></li>
                 <li class="page-link"><a href=""><i class="fa-regular fa-cart-shopping"></i><span href="">Market
@@ -94,22 +94,17 @@
         <article class="card-container">
             <div class="dashboard">
                 <a href="" class="dash-card">
-                    <img src="../../static/images/ficus-benjamina-care.jpg" alt="card-img" class="dash-img">
+                    <img src="../static/images/bot-img.jpeg" alt="card-img" class="dash-img">
                     <div class="dash-overlay">
-                        <i class="fa-regular fa-flower-tulip"></i>
-                        <span class="condtion">Good</span>
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="condtion">Working</span>
                     </div>
-                    <div class="dash-type">Ficus</div>
-                    <div class="dash-blurs">
-                        <div class="dash-blur"></div>
-                        <div class="dash-blur"></div>
-                        <div class="dash-blur"></div>
-                    </div>
+                    <div class="dash-type">Botanic-e</div>
                 </a>
             </div>
             <button class="add-card">
                 <div class="add-btn"><i class="fa-regular fa-circle-plus"></i></div>
-                <p class="add-text">You can add your flowers</p>
+                <p class="add-text">You can add your robots</p>
             </button>
         </article>
 
@@ -123,18 +118,18 @@
                     <form class="form" id="form" method="post">
                         <div class="input-box">
                             <span class="icon"><i class="fa-solid fa-hashtag-lock"></i></span>
-                            <input id="flower-id" name="flower-id" type="text" required>
-                            <label for="flower-id">Flower ID</label>
+                            <input id="robot-id" name="robot-id" type="text" required>
+                            <label for="robot-id">Robot ID</label>
                         </div>
                         <div class="input-box">
-                            <span class="icon"><i class="fa-solid fa-seedling"></i></span>
-                            <input id="specie" name="password" type="text" required>
-                            <label for="specie">Specie</label>
+                            <span class="icon"><i class="fa-solid fa-code-branch"></i></span>
+                            <input id="version" name="version" type="text" required>
+                            <label for="version">Version</label>
                         </div>
                         <div class="input-box">
-                            <span class="icon"><i class="fa-solid fa-calendar"></i></span>
-                            <input id="date" name="date" type="date" required>
-                            <label for="date">Birth Date</label>
+                            <span class="icon"><i class="fa-solid fa-battery-full"></i></span>
+                            <input id="battery" name="battery" type="text" required>
+                            <label for="battery">Battery Capacity</label>
                         </div>
                         <div class="input-btn-box">
                             <input value="Register" class="btn submit" name="submit" type="submit">
@@ -143,7 +138,7 @@
                     </form>
                 </div>
                 <div class="modal-img-conatiner">
-                    <img src="../../static/images/robot/botanic-e-innocent-looking.png" alt="" class="modal-img">
+                    <img src="../static/images/robot/botanic-e-innocent-looking.png" alt="" class="modal-img">
                 </div>
             </div>
         </aside>
@@ -151,8 +146,8 @@
         <footer class="footer">
             <div class="footer-main">
                 <div class="footer-link-container">
-                    <a class="footer-img-link" href="../index.html"><img class="footer-img"
-                            src="../../static/images/botanic-e-white-full-2k.png" alt=""></a>
+                    <a class="footer-img-link" href="index.html"><img class="footer-img"
+                            src="../static/images/botanic-e-white-full-2k.png" alt=""></a>
                     <a class="footer-get-in" href="">Get in tocuh <i
                             class="fa-sharp fa-light fa-arrow-right-long"></i></a>
                 </div>
@@ -173,7 +168,7 @@
                 <div class="footer-link-container">
                     <div class="link-title">Help</div>
                     <ul class="footer-links help">
-                        <li class="footer-link"><a href="../access/login.html">Log In</a></li>
+                        <li class="footer-link"><a href="login.html">Log In</a></li>
                         <li class="footer-link"><a href="">Platform</a></li>
                         <li class="footer-link"><a href="">About Us</a></li>
                         <li class="footer-link"><a href="">Solition</a></li>
@@ -194,10 +189,11 @@
 
     </main>
 
-    <script src="../../static/js/elements/user.js"></script>
-    <script src="../../static/js/flowers/add_flower.js"></script>
-    <script src="../../static/js/elements/side_bar.js"></script>
-    <script src="../../static/js/elements/header.js"></script>
-    <script src="../../static/js/flowers/get_flowers.js"></script>
+    <script src="../static/js/user.js"></script>
+    <script src="../static/js/side_bar.js"></script>
+    <script src="../static/js/header.js"></script>
+    <script src="../static/js/add_robot.js"></script>
+    <script src="../static/js/get_robots.js"></script>
 </body>
+
 </html>

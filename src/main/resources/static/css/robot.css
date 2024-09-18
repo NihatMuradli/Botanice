@@ -110,7 +110,7 @@
 .data-headline{
     font-weight: 600;
     font-size: 4rem;
-    background: url("../../images/wave.svg");
+    background: url("../images/wave.svg");
     background-repeat: no-repeat;
     background-size: 1500%;
     background-position: 0,0;

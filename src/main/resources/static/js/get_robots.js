@@ -12,55 +12,50 @@ document.addEventListener('DOMContentLoaded', async function () {
                 },
             });
             if (!response.ok) {
-                location.replace("../../templates/access/login.html");
+                location.replace("../templates/login.html");
                 return;
             }
 
             const result = await response.json();
 
             if (result.userId) {
-                const flowersResponse = await fetch(`http://localhost:5000/api/flowers/findFlowersByUserId/${result.userId}`, {
+                const robotsResponse = await fetch(`http://localhost:5000/api/robots/findRobotsByUserId/${result.userId}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
                 });
-                console.log(flowersResponse);
-                if (flowersResponse.ok) {
-                    const flowers = await flowersResponse.json();
+                console.log(robotsResponse);
+                if (robotsResponse.ok) {
+                    const robots = await robotsResponse.json();
                     const dashboard = document.querySelector('.dashboard');
                     dashboard.innerHTML = '';
 
-                    flowers.forEach(flower => {
+                    robots.forEach(robot => {
                         const card = document.createElement('a');
                         card.classList.add("dash-card");
-                        card.href = `flower-profile.html?id=${flower.flowerId}`;  
+                        card.href = `robot.html?id=${robot.robotId}`;
                         card.innerHTML = `
-                            <img src="../../static/images/ficus-benjamina-care.jpg" alt="card-img" class="dash-img">
+                            <img src="../../static/images/bot-img.jpeg" alt="card-img" class="dash-img">
                             <div class="dash-overlay">
-                                <i class="fa-regular fa-flower-tulip"></i>
-                                <span class="condition">${flower.condition || 'Good'}</span> <!-- Display 'Good' if flower.condition is null or undefined -->
+                                <i class="fa-solid fa-robot"></i>
+                                <span class="condtion">${robot.status || 'Working'}</span>
                             </div>
-                            <div class="dash-type">${flower.specie}</div>
-                            <div class="dash-blurs">
-                                <div class="dash-blur"></div>
-                                <div class="dash-blur"></div>
-                                <div class="dash-blur"></div>
-                            </div>
+                            <div class="dash-type">${robot.version}</div>
                         `;
-                    
+
                         dashboard.appendChild(card);
                     });
-                    
+
 
                 } else {
-                    console.error('Error fetching flowers:', flowersResponse.status, flowersResponse.statusText);
+                    console.error('Error fetching robots:', robotsResponse.status, robotsResponse.statusText);
                 }
             } else {
-                console.error('Unable to retrieve flower information.');
+                console.error('Unable to retrieve robot information.');
             }
         } else {
-            location.replace("../../templates/access/login.html");
+            location.replace("../templates/login.html");
         }
 
     } catch (error) {

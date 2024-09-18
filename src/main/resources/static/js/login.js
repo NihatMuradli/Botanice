@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (classList.indexOf("active") >= -1) alert.classList.remove("active");
             });
             setTimeout(() => {
-                location.replace("../../templates/index.html");
+                location.replace("../templates/index.html");
             }, 1500);
             
         } catch (error) {
