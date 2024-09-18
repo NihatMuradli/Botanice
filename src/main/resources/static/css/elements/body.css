@@ -1,0 +1,53 @@
+@font-face{
+    font-family: "Integral";
+    src:url(../../fonts/Integral/Fontspring-DEMO-integralcf-bold.otf);
+}
+
+@font-face {
+    font-family:"Gunship";
+    src: url("../../fonts/Gunship/gunshipbold.ttf");
+}
+
+@font-face {
+    font-family:"Gunship Bold Italic";
+    src: url("../../fonts/Gunship/gunshipacadital.ttf");
+}
+
+@font-face {
+    font-family:"Impact Wrench";
+    src: url("../../fonts/ImpactWrench/impact.ttf");
+}
+
+:root {
+    --dark-green-: #457744;
+    --dark-green-faded:#457744b4 ;
+    --white: #ffffff;
+    --white-faded: #ffffff86;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: hidden;
+    display:flex;
+    justify-content: center;
+}
+
+.wrap{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    max-width: 2000px !important;
+    background-color: transparent;
+}
+
