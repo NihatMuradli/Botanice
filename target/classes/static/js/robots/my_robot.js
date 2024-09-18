@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const deleteBtn = document.querySelector(".delete");
-    const robotID = document.querySelector("#id");
+    //const robotID = document.querySelector("#robotId");
 
     const backBlur = document.querySelector(".back-blur");
     const body = document.querySelector("body");
@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    robotID.addEventListener('input', function () {
-        let value = this.value.replace(/^#/, '');
-        if (value.length > 0) {
-            this.value = '#' + value;
-        } else {
-            this.value = '';
-        }
-    });
+    // robotID.addEventListener('input', function () {
+    //     let value = this.value.replace(/^#/, '');
+    //     if (value.length > 0) {
+    //         this.value = '#' + value;
+    //     } else {
+    //         this.value = '';
+    //     }
+    // });
 
     
     const modalHeadBtn = document.querySelector(".modal-header-btn");
@@ -83,20 +83,96 @@ document.addEventListener('DOMContentLoaded', function () {
             // Start code
         }
     });
+
+    function calculateWorkingTime(addingTime) {
+        const currentTime = new Date();
+        const addedTime = new Date(addingTime);
+        const diffInMilliseconds = currentTime - addedTime;
+
+        const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
+        const diffInMinutes = Math.floor(diffInSeconds / 60);
+        const diffInHours = Math.floor(diffInMinutes / 60);
+        const remainingMinutes = diffInMinutes % 60;
+        const remainingSeconds = diffInSeconds % 60;
+
+        return `${diffInHours} hours, ${remainingMinutes} minutes, ${remainingSeconds} seconds`;
+    }
+
+    async function fetchRobotData(robotId) {
+        try {
+            const response = await fetch(`http://localhost:5000/api/robots/${robotId}`);
+            const data = await response.json();
+
+            // Update HTML with robot data
+            document.querySelector("#user").textContent = data.user.username;
+            document.querySelector("#robot-id").textContent = "#" + data.robotId;
+            document.querySelector(".head-robot-id").textContent = "#" + data.robotId;
+            document.querySelector("#version").textContent = data.version;
+            document.querySelector("#battery").textContent = data.capacity;
+            document.querySelector("#add-time").textContent = data.addingTime;
+
+            // Calculate and update work time
+            const workTime = calculateWorkingTime(data.addingTime);
+            document.querySelector("#work-time").textContent = workTime;
+
+            // Optionally set the image source
+            const robotImg = document.querySelector('.robot-img');
+            if (data.imageUrl) {
+                // robotImg.src = data.imageUrl;
+            } else {
+                robotImg.src = '../../static/images/bot-img.jpeg'; // Default image
+            }
+
+            // Optional: Update the working time dynamically every second
+            setInterval(() => {
+                const updatedWorkTime = calculateWorkingTime(data.addingTime);
+                document.querySelector("#work-time").textContent = updatedWorkTime;
+            }, 1000); // Update every second
+
+        } catch (error) {
+            console.error('Error fetching robot data:', error);
+        }
+    }
+
+    // Extract robot ID from URL and fetch data
+    function getRobotIdFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id');
+    }
+
+    const robotId = getRobotIdFromURL();
+    if (robotId) {
+        fetchRobotData(robotId);
+    } else {
+        console.error('No robot ID found in URL.');
+    }
     
-    const deleteFrom = document.querySelector('#delete-form');
+    const deleteForm = document.querySelector('#delete-form');
 
-    deleteFrom.addEventListener('submit', async function (event) {
+    deleteForm.addEventListener('submit', async function (event) {
         event.preventDefault();
+        const deleteRobotId = document.querySelector('#robotId').value;
+        try {
+            if (deleteRobotId == robotId) {
+                const response = await fetch(`http://localhost:5000/api/robots/deleteRobot/${robotId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    },
+                });
+                if (response.ok) {
+                    alert('Robot deleted successfully!');
+                    location.replace("index.html");
+                } else {
+                    console.error('Error deleting Robot:', response.status, response.statusText);
+                }
+            } else {
+                alert('Robot Id doesnt match');
+            }
 
-
-
-        // try {
-            
-        // } catch (error) {
-            
-        // }
-
-
+        } catch (error) {
+            console.error('Error submitting delete form:', error);
+        }
     });
 });
