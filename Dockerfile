@@ -1,17 +1,8 @@
-# Use an official OpenJDK runtime as a base image
-FROM openjdk:17-jdk-alpine
+FROM maven:3.8.5-openjdk-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy the compiled JAR file from the target directory of your Maven build
-COPY target/Botanice-0.0.1-SNAPSHOT.jar /app/Botanice-0.0.1-SNAPSHOT.jar
-
-# Expose the port your application runs on
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/Botanice-0.0.1-SNAPSHOT.jar Botanice.jar
 EXPOSE 5000
-
-# Environment variables
-ENV BACKEND_URL=http://localhost:5000
-
-# Command to run the application
-CMD ["java", "-jar", "/app/Botanice-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "Botanice.jar"]

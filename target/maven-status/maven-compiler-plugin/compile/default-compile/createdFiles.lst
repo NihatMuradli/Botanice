@@ -1,0 +1,16 @@
+com\botanice\advice\ApplicationErrorHandler.class
+com\botanice\model\Flower.class
+com\botanice\controller\UserController.class
+com\botanice\repository\RobotRepository.class
+com\botanice\repository\UserRepository.class
+com\botanice\controller\FlowerController.class
+com\botanice\model\User.class
+com\botanice\exception\FlowerNotFoundException.class
+com\botanice\model\Message.class
+com\botanice\util\JwtUtil.class
+com\botanice\exception\UserDetailsAreIncorrect.class
+com\botanice\exception\RobotNotFoundException.class
+com\botanice\repository\FlowerRepository.class
+com\botanice\controller\RobotController.class
+com\botanice\ApplicationClass.class
+com\botanice\model\Robot.class
