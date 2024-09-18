@@ -1,21 +1,21 @@
 @font-face{
     font-family: "Integral";
-    src:url(../fonts/Integral/Fontspring-DEMO-integralcf-bold.otf);
+    src:url(fonts/Integral/Fontspring-DEMO-integralcf-bold.otf);
 }
 
 @font-face {
     font-family:"Gunship";
-    src: url("../fonts/Gunship/gunshipbold.ttf");
+    src: url("fonts/Gunship/gunshipbold.ttf");
 }
 
 @font-face {
     font-family:"Gunship Bold Italic";
-    src: url("../fonts/Gunship/gunshipacadital.ttf");
+    src: url("fonts/Gunship/gunshipacadital.ttf");
 }
 
 @font-face {
     font-family:"Impact Wrench";
-    src: url("../fonts/ImpactWrench/impact.ttf");
+    src: url("fonts/ImpactWrench/impact.ttf");
 }
 
 :root {

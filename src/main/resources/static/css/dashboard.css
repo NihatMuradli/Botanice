@@ -27,7 +27,7 @@ body.no-scroll{
     padding: 40px;
     padding-top: 125px;
     min-height: 50vh;
-    background: url("../images/background-photo.jpg");
+    background: url("images/background-photo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-origin: border-box;
@@ -82,7 +82,7 @@ body.no-scroll{
 }
 
 .condtion{
-    background: url("../images/wave.svg");
+    background: url("images/wave.svg");
     background-repeat: no-repeat;
     background-size: 1500%;
     background-position: 0,0;

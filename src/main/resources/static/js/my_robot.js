@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 if (response.ok) {
                     alert('Robot deleted successfully!');
-                    location.replace("index.html");
+                    location.replace("templates/index.html");
                 } else {
                     console.error('Error deleting Robot:', response.status, response.statusText);
                 }

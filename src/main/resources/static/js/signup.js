@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (classList.indexOf("active") >= -1) alert.classList.remove("active");
                 });
                 setTimeout(() => {
-                    location.replace("login.html");
+                    location.replace("templates/login.html");
                 }, 1500);
             console.log('Created User Account:', createdAccount);
         } catch (error) {
